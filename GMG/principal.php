@@ -1,3 +1,6 @@
+<?php 
+	include 'app/config.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,20 +20,30 @@
 </head>
 <body>
   <div class="app app-default">
-	<?php include 'templates/aside.php'; ?>
+	<?php include 'views/templates/aside.php'; ?>
 	
 	<script type="text/ng-template" id="sidebar-dropdown.tpl.html">
-  <div class="dropdown-background">
-    <div class="bg"></div>
-  </div>
-  <div class="dropdown-container">
-    {{list}}
-  </div>
+    	<div class="dropdown-background">
+         <div class="bg"></div>
+        </div>
+  		<div class="dropdown-container">
+    		{{list}}
+  		</div>
 	</script>
 	<div class="app-container">
-	
-	  
-	
+	<div class="row">
+	    <div class="col-lg-12">
+	      <div class="card">
+	        <div class="card-body app-heading">
+	          <img class="profile-img" src="../assets/images/profile.png">
+	          <div class="app-title">
+	            <div class="title"><span class="highlight">Scott White</span></div>
+	            <div class="description">Frontend Developer</div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
 	  <div class="btn-floating" id="help-actions">
 	  <div class="btn-bg"></div>
 	  <button type="button" class="btn btn-default btn-toggle" data-toggle="toggle" data-target="#help-actions">
@@ -220,7 +233,7 @@
 	    </div>
 	  </div>
 	</div>
-	<?php include 'templates/footer.php';?>
+	<?php include 'views/templates/footer.php';?>
 	
 	</div>
 

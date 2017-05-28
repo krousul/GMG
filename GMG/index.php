@@ -1,3 +1,9 @@
+<?php 
+	define('DS', DIRECTORY_SEPARATOR);
+	define('ROOT', realpath(dirname(__FILE__)) . DS);
+	define('TEMPLATES', ROOT . DS. 'templates' .DS . 'aside.php');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

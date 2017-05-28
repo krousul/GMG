@@ -1,18 +1,25 @@
 <?php
-//se puede cambiar el default controller en uno lo quiere redirecionar
-define('DEFAUL_CONTROLLER', 'index');
-define('DEFAULT_LAYOUT', 'default');
-define('DEFAULT_STRINGS', 'esp');
+define('DS', DIRECTORY_SEPARATOR);
+define('ROOT', substr(realpath(dirname(__FILE__)) . DS, 0, -4));
 
-define('BASE_URL', 'http://localhost/FAIROZ/');
-define('CLASSE', ROOT . 'models' . DS . 'class' . DS);
-define('LAYOUT', BASE_URL . 'web/views/templates/' . DEFAULT_LAYOUT . '/layout/');
-define('IMAGES', BASE_URL . 'web/views/templates/' . DEFAULT_LAYOUT . '/layout/img/abasto/');
-define('TEMPLATES', ROOT . 'web'. DS . 'views'. DS . 'templates' . DS . DEFAULT_LAYOUT . DS);
+define('URL_TEMPLATES', ROOT . 'views'. DS . 'templates' . DS );
+define('URL_APP', ROOT . 'app'. DS );
 
-define('XAJAX_CORE', ROOT . 'controllers'. DS . 'xajax'. DS . 'xajax_core'. DS . 'xajax.inc.php');
-define('XAJAX_FUNC', ROOT . 'models'. DS . 'xajax'. DS);
-define('XAJAX_JS', BASE_URL . 'controllers/xajax/');
+/*--------------------------------------------------------------------*/
+
+define('BASE_URL', 'http://localhost/GMG_LOCAL/');
+
+define('URL_SECIONES', BASE_URL . 'views/seciones/');
+define('URL_REDES', BASE_URL . 'views/redes_sociales/');
+define('URL_CONF_GEN', BASE_URL . 'views/conf_general/');
+define('URL_ADMIN', BASE_URL . 'views/administracion/');
+
+define('CSS', BASE_URL . 'assets/css/');
+define('JS', BASE_URL . 'assets/js/');
+define('FONTS', BASE_URL .'assets/fonts/');
+define('IMAGES', BASE_URL . 'assets/images/');
+
+/*--------------------------------------------------------------------*/
 
 //Configuracion de la BD a usar
 define('DB_HOST', 'localhost');

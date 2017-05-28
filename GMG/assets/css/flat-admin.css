@@ -2503,7 +2503,7 @@ a:hover {
     background-color: #29c75f; }
 
 aside.app-sidebar {
-  position: absolute;
+  position: fixed;
   top: auto;
   left: 0;
   bottom: auto;
@@ -3273,12 +3273,12 @@ ul.icons {
           background-color: #FFF;
           position: relative;
           z-index: 2;
-          width: 140px;
+          width: 90%;
           margin: 0 auto; }
         .app-inbox .messaging ul.chat > li.line:after {
           content: '';
           position: absolute;
-          width: 50%;
+          width: 90%;
           bottom: 50%;
           left: 50%;
           transform: translate(-50%, 0);
@@ -3846,7 +3846,7 @@ ui-view > .app-messaging-container {
     padding: 0;
     background-color: #f0f4f5;
     border-bottom: 0;
-    overflow-x: scroll;
+/*     overflow-x: scroll; */
     overflow-y: visible; }
   .card.card-tab .card-header > ul, .card.card-tab ul.nav-tabs {
     list-style: none;
@@ -3915,7 +3915,7 @@ ui-view > .app-messaging-container {
     background-color: #f0f4f5; }
     .card.card-tab > .ng-isolate-scope > .nav-tabs > li.active {
       border-bottom: 2px solid #FFF;
-      border-left: 1px solid #dfe6e8;
+      border-left: 1px solid #ff0;
       border-right: 1px solid #dfe6e8;
       background-color: #FFF; }
       .card.card-tab > .ng-isolate-scope > .nav-tabs > li.active a {
