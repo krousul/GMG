@@ -1,11 +1,11 @@
 <?php 
 	if($_SERVER['REQUEST_URI'] == '/GMG_LOCAL/principal.php'){
-		$seciones = 'active';
+		$secciones = 'active';
 		$redes = '';
 		$gereral = '';
 		$admin = '';
 	} else if($_SERVER['REQUEST_URI'] == '/GMG_LOCAL/messaging.php'){
-		$seciones = '';
+		$secciones = '';
 		$redes = 'active';
 		$gereral = '';
 		$admin = '';
@@ -21,20 +21,20 @@
   <div class="sidebar-menu">
     <ul class="sidebar-nav">
     
-      <li class="dropdown <?php echo $seciones = ($seciones == 'active') ? active : '';?>">
+      <li class="dropdown <?php echo $secciones = ($secciones == 'active') ? active : '';?>">
         <a href="#">
           <div class="icon">
             <i class="fa fa-tasks" aria-hidden="true"></i>
           </div>
-          <div class="title">Seciones</div>
+          <div class="title">secciones</div>
         </a>
         <div class="dropdown-menu">
           <ul>
-            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Seciones</li>
-            <li><a href="<?= URL_SECIONES?>servicios.php">Servicios</a></li>
-            <li><a href="<?= URL_SECIONES?>equipo.php">Equipo</a></li>
-            <li><a href="<?= URL_SECIONES?>propiedades.php">Propiedades</a></li>
-            <li><a href="<?= URL_SECIONES?>Inversiones.php">Inversiones</a></li>
+            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> secciones</li>
+            <li><a href="<?= URL_SECCIONES?>servicios.php">Servicios</a></li>
+            <li><a href="<?= URL_SECCIONES?>equipo.php">Equipo</a></li>
+            <li><a href="<?= URL_SECCIONES?>propiedades.php">Propiedades</a></li>
+            <li><a href="<?= URL_SECCIONES?>Inversiones.php">Inversiones</a></li>
             <li class="line"></li>
           </ul>
         </div>
