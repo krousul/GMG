@@ -1,11 +1,11 @@
 <?php 
 	if($_SERVER['REQUEST_URI'] == '/GMG_LOCAL/principal.php'){
-		$secciones = 'active';
+		$seciones = 'active';
 		$redes = '';
 		$gereral = '';
 		$admin = '';
 	} else if($_SERVER['REQUEST_URI'] == '/GMG_LOCAL/messaging.php'){
-		$secciones = '';
+		$seciones = '';
 		$redes = 'active';
 		$gereral = '';
 		$admin = '';
@@ -21,20 +21,20 @@
   <div class="sidebar-menu">
     <ul class="sidebar-nav">
     
-      <li class="dropdown <?php echo $secciones = ($secciones == 'active') ? active : '';?>">
+      <li class="dropdown <?php echo $seciones = ($seciones == 'active') ? active : '';?>">
         <a href="#">
           <div class="icon">
             <i class="fa fa-tasks" aria-hidden="true"></i>
           </div>
-          <div class="title">secciones</div>
+          <div class="title">Secci&oacute;nes</div>
         </a>
         <div class="dropdown-menu">
           <ul>
-            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> secciones</li>
-            <li><a href="<?= URL_SECCIONES?>servicios.php">Servicios</a></li>
-            <li><a href="<?= URL_SECCIONES?>equipo.php">Equipo</a></li>
-            <li><a href="<?= URL_SECCIONES?>propiedades.php">Propiedades</a></li>
-            <li><a href="<?= URL_SECCIONES?>Inversiones.php">Inversiones</a></li>
+            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Secci&oacute;nes</li>
+            <li><a href="<?= URL_SECIONES?>servicios.php">Servicios</a></li>
+            <li><a href="<?= URL_SECIONES?>equipo.php">Equipo</a></li>
+            <li><a href="<?= URL_SECIONES?>propiedades.php">Propiedades</a></li>
+            <li><a href="<?= URL_SECIONES?>Inversiones.php">Inversiones</a></li>
             <li class="line"></li>
           </ul>
         </div>
@@ -62,11 +62,11 @@
           <div class="icon">
             <i class="fa fa-tasks" aria-hidden="true"></i>
           </div>
-          <div class="title">Configuración Generales</div>
+          <div class="title">Configuraci&oacute;n Generales</div>
         </a>
         <div class="dropdown-menu">
           <ul>
-            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Configuración Generales</li>
+            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Configuraci&oacute;n Generales</li>
             <li><a href="<?= URL_CONF_GEN?>banner.php"> Banner Principal</a></li>
             <li><a href="<?= URL_CONF_GEN?>proyectos.php"> Proyectos</a></li>
             <li class="line"></li>
@@ -79,11 +79,11 @@
           <div class="icon">
             <i class="fa fa-tasks" aria-hidden="true"></i>
           </div>
-          <div class="title">Administración</div>
+          <div class="title">Administraci&oacute;n</div>
         </a>
         <div class="dropdown-menu">
           <ul>
-            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Administración</li>
+            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Administraci&oacute;n</li>
             <li><a href="<?= URL_ADMIN?>idioma.php"> Idioma</a></li>
             <li><a href="<?= URL_ADMIN?>Cpanel.php"> Control Panel</a></li>
             <li><a href="<?= URL_ADMIN?>sistema.php"> Sistema</a></li>
@@ -96,11 +96,6 @@
   </div>
   <div class="sidebar-footer">
     <ul class="menu">
-      <li>
-        <a href="/" class="dropdown-toggle" data-toggle="dropdown">
-          <i class="fa fa-cogs" aria-hidden="true"></i>
-        </a>
-      </li>
       <li><a href="#"><span class="flag-icon flag-icon-th flag-icon-squared"></span></a></li>
     </ul>
   </div>

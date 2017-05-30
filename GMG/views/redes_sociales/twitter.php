@@ -30,21 +30,8 @@
 		    </div>
 		  </div>
 		  
-		<div class="btn-floating" id="help-actions">
-		  <div class="btn-bg"></div>
-		  <button type="button" class="btn btn-default btn-toggle" data-toggle="toggle" data-target="#help-actions">
-		    <i class="icon fa fa-plus"></i>
-		    <span class="help-text">Shortcut</span>
-		  </button>
-		  <div class="toggle-content">
-		    <ul class="actions">
-		      <li><a href="#">Website</a></li>
-		      <li><a href="#">Documentation</a></li>
-		      <li><a href="#">Issues</a></li>
-		      <li><a href="#">About</a></li>
-		    </ul>
-		  </div>
-		</div>
+ 		<?php include URL_TEMPLATES."btn_floating.php";?>
+ 		
 		<div class="row">
 		    <div class="col-lg-12">
 		      <div class="card card-tab">
@@ -60,15 +47,15 @@
 		            <div class="row">
 		              <div class="col-md-12 col-sm-12">
 		                <div class="section">
-		                  <div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i> PROPIEDADES DE RECONTRUCCIÓN</div>
-		                  <div class="section-body __indent">Proyectos residenciales, comerciales u oficina en plano, construcción o nuevas en Florida - USA</div>
+		                  <div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i> PROPIEDADES DE RECONTRUCCI&oacute;N</div>
+		                  <div class="section-body __indent">Proyectos residenciales, comerciales u oficina en plano, construcci&oacute;n o nuevas en Florida - USA</div>
 		                </div>
 		                <div class="section">
 		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i> PROPIEDADES EN RE-VENTA</div>
 		                  <div class="section-body __indent">Computer Engineering, Khon Kaen University</div>
 		                </div>
 		                <div class="section">
-		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i> ASESORÍA EN INMIGRACIÓN A USA</div>
+		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i> ASESOR&iacute;A EN INMIGRACI&oacute;N A USA</div>
 		                  <div class="section-body __indent">Computer Engineering, Khon Kaen University</div>
 		                </div>
 		                <div class="section">

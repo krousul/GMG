@@ -5779,3 +5779,30 @@ footer.app-footer {
     font-size: 0.9em; }
   .media.social-post .media-body .media-comment input {
     padding: 7.5px 15px; }
+
+    #background_principal {
+		background-image: url(images/background-photo.jpg);
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+		background-color: #66999;
+		background-image: url("keyboard.jpg");
+    }
+    
+    @media only screen and (max-width: 767px) {
+		#background_principal {
+			background-image: url(keyboard.jpg);
+		}
+	}
+	
+	.tittle_principal {
+		position: absolute;
+		top:50%;
+		left:50%;
+		width:300px;
+		height:200px;
+		padding:5px;
+		color: #fff;
+		size: 20px;
+	}
