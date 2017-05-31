@@ -8,7 +8,7 @@ define('URL_CONTROLLER', ROOT . 'controller'. DS );
 
 /*--------------------------------------------------------------------*/
 
-define('BASE_URL', 'http://localhost/GMG/');
+define('BASE_URL', 'http://localhost/GMG/branches/GMG_SUB_2/GMG/');
 
 define('URL_SECIONES', BASE_URL . 'views/seciones/');
 define('URL_REDES', BASE_URL . 'views/redes_sociales/');

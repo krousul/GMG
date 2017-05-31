@@ -31,7 +31,7 @@
 	</div>
 	
 	<div class="tittle_principal">
-		Bienvenidos a la Interfaz Administrativa de la Aplicaci&oacute;n GMG
+		<h1><em>Bienvenidos a la Interfaz Administrativa de la Aplicaci&oacute;n </em>GMG</h1>
 	</div>
 	<div>
   		<?php include URL_TEMPLATES . 'footer.php';?>
