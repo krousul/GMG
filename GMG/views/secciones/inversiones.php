@@ -1,9 +1,17 @@
 <?php 
 include '../../app/config.php';
 include URL_TEMPLATES.'head.php'; 
+
+//Despues de un Response
+if($_REQUEST){
+		
+	include URL_MODEL.'validarArchivos.php';
+	countResponse($_REQUEST);
+}
+
 ?>
 <body>
-  <div class="app app-default app-inbox">
+  <div class="app app-default ">
 	<?php include URL_TEMPLATES . 'aside.php'; ?>
 	
 	<script type="text/ng-template" id="sidebar-dropdown.tpl.html">
@@ -16,6 +24,8 @@ include URL_TEMPLATES.'head.php';
 	</script>
 	
 	<div class="app-container">
+	
+	
 		<div class="row">
 		    <div class="col-lg-12">
 		      <div class="card">
@@ -36,6 +46,7 @@ include URL_TEMPLATES.'head.php';
 		    <i class="icon fa fa-plus"></i>
 		    <span class="help-text">Shortcut</span>
 		  </button>
+		  
 		  <div class="toggle-content">
 		    <ul class="actions">
 		      <li><a href="#">Website</a></li>
@@ -45,6 +56,7 @@ include URL_TEMPLATES.'head.php';
 		    </ul>
 		  </div>
 		</div>
+		
 		<div class="row">
 		    <div class="col-lg-12">
 		      <div class="card card-tab">
@@ -55,37 +67,49 @@ include URL_TEMPLATES.'head.php';
 		            </li>
 		          </ul>
 		        </div>
+		        
 		        <div class="card-body no-padding tab-content">
 		          <div role="tabpanel" class="tab-pane active" id="tab1">
+                  <div class="card-body">
 		            <div class="row">
-		              <div class="col-md-12 col-sm-12">
+		              <div class="col-md-4 col-sm-4">
 		                <div class="section">
-		                  <div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i> PROPIEDADES DE RECONTRUCCIÓN</div>
-		                  <div class="section-body __indent"><?php require UPLOAD_IMG.'index.php'; ?></div>
-		                </div>
-		                <div class="section">
-		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i> PROPIEDADES EN RE-VENTA</div>
-		                  <div class="section-body __indent">Computer Engineering, Khon Kaen University</div>
-		                </div>
-		                <div class="section">
-		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i> ASESORÍA EN INMIGRACIÓN A USA</div>
-		                  <div class="section-body __indent">Computer Engineering, Khon Kaen University</div>
-		                </div>
-		                <div class="section">
-		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i> FINANCIAMIENTO COMERCIAL / COMERCIAL</div>
-		                  <div class="section-body __indent">Computer Engineering, Khon Kaen University</div>
-		                </div>
-		                <div class="section">
-		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i> NEGOCIOS RENTABLES EN $</div>
-		                  <div class="section-body __indent">Computer Engineering, Khon Kaen University</div>
-		                </div>
-		              	<div class="section">
-		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i> INVERSIONES DE CAPITAL</div>
-		                  <div class="section-body __indent">Computer Engineering, Khon Kaen University</div>
+		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i> IMAGEN 1</div>
+		                  <div class="section-body __indent">
+						    <div>
+						      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imgInversiones1">
+				                  <div><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;EDITAR</div>
+						      </button>
+						    </div>
+		                  </div>
 		                </div>
 		              </div>
-		              
+              		  <div class="col-md-4 col-sm-4">
+		                <div class="section">
+		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i>IMAGEN 2</div>
+		                  <div class="section-body __indent">
+						    <div>
+						      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imgInversiones2">
+				                  <div><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;EDITAR</div>
+						      </button>
+						    </div>
+		                  </div>
+		                </div>
+		              </div>
+              		  <div class="col-md-4 col-sm-4">
+		                <div class="section">
+		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i>IMAGEN 3</div>
+		                  <div class="section-body __indent">
+						    <div>
+						      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imgInversiones3">
+				                  <div><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;EDITAR</div>
+						      </button>
+						    </div>
+		                  </div>
+		                </div>
+		              </div>
 		            </div>
+		          </div>
 		          </div>
 		        </div>
 		    	</div>
@@ -93,6 +117,86 @@ include URL_TEMPLATES.'head.php';
 		</div>
 	</div>
 </div>
+
+#Modales
+
+    <div class="modal fade" id="imgInversiones1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog">
+        <div class="modal-content">
+		  <form class="form-horizontal" method="GET" action="Inversiones.php" enctype="multipart/form-data" autocomplete="off">								
+	          <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	            <h4 class="modal-title">Editando imagen 1</h4>
+	          </div>
+	          <div class="modal-body">
+		         <div class="container">
+		         	<div class="row">
+						<div class="form-group">
+							<div class="col-sm-5">
+								<label for="idioma" class="control-label">Eliga el idioma de edici&oacute;n</label>
+								<select name="idioma" id="idioma">
+									<option value="1">Espa&ntilde;ol</option>
+									<option value="2">Ingles</option>
+									<option value="3">Portugues</option>
+								</select>
+							</div>
+						</div>
+					</div>
+		         	<div class="row">
+						<div class="form-group">
+							<div class="col-sm-5">
+								<label for="archivo" class="control-label">Ingrese la imagen</label>
+								<input type="file" class="form-control" id="archivo" name="archivo">
+							</div>
+						</div>
+					</div>
+				</div>
+	          </div>
+	          <div class="modal-footer">
+	            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cerrar</button>
+	            <button type="submit" class="btn btn-sm btn-success">Guardar Cambios</button>
+	          </div>
+		  </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="imgInversiones2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Aqui 2</h4>
+          </div>
+          <div class="modal-body">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-sm btn-success">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="imgInversiones3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Aqui 3</h4>
+          </div>
+          <div class="modal-body">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-sm btn-success">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
 
 <?php include URL_TEMPLATES.'footer.php'; ?>
 <?php include URL_TEMPLATES.'footer_includes.php' ; ?>
