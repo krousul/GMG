@@ -1,19 +1,38 @@
 <?php 
-	if($_SERVER['REQUEST_URI'] == '/GMG_LOCAL/principal.php'){
-		$seciones = 'active';
+	$pag_active = strpos($_SERVER['REQUEST_URI'], 'secciones');
+	
+	if(strpos($_SERVER['REQUEST_URI'], 'secciones')){
+		$secciones = 'active';
 		$redes = '';
 		$gereral = '';
 		$admin = '';
-	} else if($_SERVER['REQUEST_URI'] == '/GMG_LOCAL/messaging.php'){
-		$seciones = '';
+	} else if(strpos($_SERVER['REQUEST_URI'], 'redes_sociales')){
+		$secciones = '';
 		$redes = 'active';
 		$gereral = '';
 		$admin = '';
+	} else if(strpos($_SERVER['REQUEST_URI'], 'administracion')){
+		$secciones = '';
+		$redes = '';
+		$gereral = '';
+		$admin = 'active';
+	} else if(strpos($_SERVER['REQUEST_URI'], 'conf_general')){
+		$secciones = '';
+		$redes = '';
+		$gereral = 'active';
+		$admin = '';
+	} else{
+		$secciones = '';
+		$redes = '';
+		$gereral = '';
+		$admin = '';
 	}
+	// $_SERVER['PHP_SELF']; $_SERVER['QUERY_STRING'];
+	//print_r($pag_active);exit;
 ?>
 <aside class="app-sidebar" id="sidebar">
   <div class="sidebar-header">
-    <a class="sidebar-brand" href="#"><span class="highlight">GMG</span> CPanel</a>
+    <a class="sidebar-brand" href="<?= URL_VIEWS."principal.php"?>"><span class="highlight">GMG</span> CPanel</a>
     <button type="button" class="sidebar-toggle">
       <i class="fa fa-times"></i>
     </button>
@@ -21,7 +40,7 @@
   <div class="sidebar-menu">
     <ul class="sidebar-nav">
     
-      <li class="dropdown <?php echo $seciones = ($seciones == 'active') ? active : '';?>">
+      <li class="dropdown <?php echo $secciones = ($secciones == 'active') ? active : '';?>">
         <a href="#">
           <div class="icon">
             <i class="fa fa-tasks" aria-hidden="true"></i>
@@ -31,10 +50,10 @@
         <div class="dropdown-menu">
           <ul>
             <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Secci&oacute;nes</li>
-            <li><a href="<?= URL_SECIONES?>servicios.php">Servicios</a></li>
-            <li><a href="<?= URL_SECIONES?>equipo.php">Equipo</a></li>
-            <li><a href="<?= URL_SECIONES?>propiedades.php">Propiedades</a></li>
-            <li><a href="<?= URL_SECIONES?>Inversiones.php">Inversiones</a></li>
+            <li><a href="<?= URL_SECCIONES?>servicios.php">Servicios</a></li>
+            <li><a href="<?= URL_SECCIONES?>equipo.php">Equipo</a></li>
+            <li><a href="<?= URL_SECCIONES?>propiedades.php">Propiedades</a></li>
+            <li><a href="<?= URL_SECCIONES?>Inversiones.php">Inversiones</a></li>
             <li class="line"></li>
           </ul>
         </div>

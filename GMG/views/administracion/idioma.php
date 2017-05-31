@@ -29,7 +29,7 @@
 		      </div>
 		    </div>
 		  </div>
-		  
+		 
 		<?php include URL_TEMPLATES."btn_floating.php";?>
 		
 		<div class="row">

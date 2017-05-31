@@ -40,22 +40,7 @@ if($_REQUEST){
 		    </div>
 		  </div>
 		  
-		<div class="btn-floating" id="help-actions">
-		  <div class="btn-bg"></div>
-		  <button type="button" class="btn btn-default btn-toggle" data-toggle="toggle" data-target="#help-actions">
-		    <i class="icon fa fa-plus"></i>
-		    <span class="help-text">Shortcut</span>
-		  </button>
-		  
-		  <div class="toggle-content">
-		    <ul class="actions">
-		      <li><a href="#">Website</a></li>
-		      <li><a href="#">Documentation</a></li>
-		      <li><a href="#">Issues</a></li>
-		      <li><a href="#">About</a></li>
-		    </ul>
-		  </div>
-		</div>
+		<?php include URL_TEMPLATES."btn_floating.php";?>
 		
 		<div class="row">
 		    <div class="col-lg-12">
@@ -119,7 +104,6 @@ if($_REQUEST){
 </div>
 
 #Modales
-
     <div class="modal fade" id="imgInversiones1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -194,9 +178,6 @@ if($_REQUEST){
         </div>
       </div>
     </div>
-
-
-
 
 <?php include URL_TEMPLATES.'footer.php'; ?>
 <?php include URL_TEMPLATES.'footer_includes.php' ; ?>
