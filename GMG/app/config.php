@@ -5,16 +5,20 @@ define('ROOT', substr(realpath(dirname(__FILE__)) . DS, 0, -4));
 define('URL_TEMPLATES', ROOT . 'views'. DS . 'templates' . DS );
 define('URL_APP', ROOT . 'app'. DS );
 define('URL_CONTROLLER', ROOT . 'controller'. DS );
+define('URL_MODEL', ROOT . 'app'. DS . 'model' . DS );
+define('URL_UPLOAD_IMAGES_DIR', ROOT . 'assets'. DS . 'images' . DS . 'upload' . DS);
 
 /*--------------------------------------------------------------------*/
 
-define('BASE_URL', 'http://localhost/GMG/branches/GMG_SUB_2/GMG/');
+define('BASE_URL', 'http://localhost:8080/GMG/GMG_SUB_2/');
 
 define('URL_SECCIONES', BASE_URL . 'views/secciones/');
 define('URL_REDES', BASE_URL . 'views/redes_sociales/');
 define('URL_CONF_GEN', BASE_URL . 'views/conf_general/');
 define('URL_ADMIN', BASE_URL . 'views/administracion/');
 define('URL_VIEWS', BASE_URL . 'views'. DS );
+define('URL_UPLOAD_IMAGES_DB', BASE_URL . 'assets/images/upload/');
+
 
 define('CSS', BASE_URL . 'assets/css/');
 define('JS', BASE_URL . 'assets/js/');
@@ -29,4 +33,73 @@ define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_NAME', 'gmg_db');
 define('DB_CHAR', 'utf8');
+define('DB_TYPE', 'mysql');
+
+
+/*----------------------------------------------------*/
+//configuracion de las variable globales por modulo
+
+/* Se definen los moduulos individualmente
+ * y luego se anexan todos en $ALLMODULE
+ * */
+
+define('MODULE_INV', 'Inversiones');
+define('MODULE_INV', 'Inversiones');
+
+$ALLMODULE = array("".MODULE_INV."");
+
+//configuracion de las variable globales por secciones de formularios
+
+define("GLOBAL_FORM_1", 1);
+define("GLOBAL_FORM_2", 2);
+define("GLOBAL_FORM_3", 3);
+
+$GLOBALFORM = array("".GLOBAL_FORM_1."","".GLOBAL_FORM_2."","".GLOBAL_FORM_3."");
+
+/*Aqui se encuentran todos los ID de los formularios
+ * de los cuales cada formulario se vera identificado
+ * dependiendo de cuantos elementos esten integrados*/
+
+foreach ($ALLMODULE as $indice => $modulo){
+	foreach ($GLOBALFORM as $indiceGlobal => $forms) {
+		$IDFORMS[$modulo][] = $modulo.$forms;
+	}
+}
+
+//ARCHIVOS *************************************************************************
+
+//Imagenes permitidas
+$ALLOWFORMAT = array("image/gif","image/png","image/jpeg","application/pdf");
+
+//Limite de tamaño archivos
+
+define('UPLOAD_LIMIT',(1024000 * 20)); // 20 MB
+
+//***********************************************************************************
+
+//Mensajes de Modales****************************************************************
+
+define("MSJ_GUARDADO_EXITOSO", "Se ha guardado exitosamente");	
+define("MSJ_ERROR_GENERAL", "Error : ");
+define("MSJ_ADVERTENCIA", "Atencion : ");
+
+$MENSAJES = array(MSJ_GUARDADO_EXITOSO,
+				  MSJ_ERROR_GENERAL,
+				  MSJ_ADVERTENCIA);
+
+//***********************************************************************************
+
+//IDIOMA ****************************************************************************
+
+define('ESPANOL', 1);
+define('INGLES', 2);
+define('PORTUGUES', 3);
+
+$ALLIDIOM = array("es_ES" => ESPANOL,
+				  "en_EN" => INGLES,
+				  "pr_PR" => PORTUGUES);
+
+//********************************************************************
+//Parametros de validacion de archivos
+$PARAMETERSVALIDATION = array($GLOBALFORM,$ALLOWFORMAT,URL_UPLOAD_IMAGES_DB,URL_SECCIONES,$MENSAJES,UPLOAD_LIMIT,$ALLIDIOM,URL_UPLOAD_IMAGES_DIR);
 ?>
