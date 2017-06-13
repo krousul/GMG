@@ -7,11 +7,14 @@ define('URL_APP', ROOT . 'app'. DS );
 define('URL_CONTROLLER', ROOT . 'controller'. DS );
 define('URL_MODEL', ROOT . 'app'. DS . 'model' . DS );
 define('URL_UPLOAD_IMAGES_DIR', ROOT . 'assets'. DS . 'images' . DS . 'upload' . DS);
+define('URL_DATATYPES', URL_MODEL . 'DataTypes'. DS );
+define('URL_MODAL', ROOT . 'views'. DS . 'administracion' . DS . 'modal' . DS);
+define('URL_AJAX', ROOT . 'views'. DS . 'administracion' . DS . 'ajax' . DS);
+
 
 /*--------------------------------------------------------------------*/
 
-define('BASE_URL', 'http://localhost:8080/GMG/GMG_SUB_2/');
-
+define('BASE_URL', 'http://localhost/GMG/branches/GMG_SUB_2/GMG/');
 define('URL_SECCIONES', BASE_URL . 'views/secciones/');
 define('URL_REDES', BASE_URL . 'views/redes_sociales/');
 define('URL_CONF_GEN', BASE_URL . 'views/conf_general/');
@@ -19,14 +22,17 @@ define('URL_ADMIN', BASE_URL . 'views/administracion/');
 define('URL_VIEWS', BASE_URL . 'views'. DS );
 define('URL_UPLOAD_IMAGES_DB', BASE_URL . 'assets/images/upload/');
 
-
 define('CSS', BASE_URL . 'assets/css/');
 define('JS', BASE_URL . 'assets/js/');
 define('FONTS', BASE_URL .'assets/fonts/');
 define('IMAGES', BASE_URL . 'assets/images/');
 
-/*--------------------------------------------------------------------*/
+/*------------------------- XAJAX -------------------------------------*/
+define('XAJAX_CORE', ROOT . 'controller'. DS . 'xajax'. DS . 'xajax_core'. DS . 'xajax.inc.php');
+define('XAJAX_FUNC', ROOT . 'controller'. DS);
+define('XAJAX_JS', BASE_URL . 'controller/xajax/');
 
+/*--------------------------- BD ---------------------------------------*/
 //Configuracion de la BD a usar
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');

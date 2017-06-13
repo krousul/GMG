@@ -1,8 +1,8 @@
 <?php 
-
-include '../../app/conex.php';
-include URL_TEMPLATES.'head.php'; 
-include URL_MODEL.'validarArchivos.php';
+	include '..//..//app/config.php';
+	include URL_CONTROLLER . 'con_inversiones.php';
+	include URL_TEMPLATES . 'head.php';
+	include URL_MODEL.'validarArchivos.php';
 
 ?>
 <body>
@@ -277,12 +277,9 @@ include URL_MODEL.'validarArchivos.php';
     </div>
     
 <!-- FOOTER -->
- <?php include URL_TEMPLATES.'footer.php';?> 
-
-<<<<<<< .mine=======<?php include URL_TEMPLATES.'footer.php'; ?>
+<?php include URL_TEMPLATES.'footer.php';?> 
 <?php include URL_TEMPLATES.'footer_includes.php' ; ?>
 
   <script type="text/javascript" src="<?= JS?>vendor.js"></script>
   <script type="text/javascript" src="<?= JS?>app.js"></script>
->>>>>>> .theirs</body>
 </html>

@@ -35,7 +35,7 @@
 	
 					$user_name = $this->db_connection->real_escape_string($_POST['user_name']);
 	
-					$sql = "SELECT user_id, user_name, firstname, user_email, user_password_hash
+					$sql = "SELECT id_users, user_name, firstname, user_email, user_password_hash
                        		 FROM users
                         		WHERE user_name = '" . $user_name . "' OR user_email = '" . $user_name . "';";
 					$result = $this->db_connection->query($sql);
@@ -46,7 +46,7 @@
 	
  						if (password_verify($_POST['user_password'], $result_row->user_password_hash)) {
 	
-							$_SESSION['user_id'] = $result_row->user_id;
+							$_SESSION['id_users'] = $result_row->id_users;
 							$_SESSION['firstname'] = $result_row->firstname;
 							$_SESSION['user_name'] = $result_row->user_name;
 							$_SESSION['user_email'] = $result_row->user_email;

@@ -104,7 +104,6 @@ function verifyFiles($FILES,$cabeceras,$modulo,$PARAMETERSVALIDATION){
 						if(!file_exists($archivo)){
 				
 							$resultado = @move_uploaded_file($FILES[$nameFile]["tmp_name"], $archivo);
-				
 							if($resultado){
 								$File->setFiles();
 								$allFiles[] = $File->getFile();

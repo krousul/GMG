@@ -1,16 +1,3 @@
-<?php 
-	if($_SERVER['REQUEST_URI'] == '/GMG_LOCAL/principal.php'){
-		$seciones = 'active';
-		$redes = '';
-		$gereral = '';
-		$admin = '';
-	} else if($_SERVER['REQUEST_URI'] == '/GMG_LOCAL/messaging.php'){
-		$seciones = '';
-		$redes = 'active';
-		$gereral = '';
-		$admin = '';
-	}
-?>
 <aside class="app-sidebar" id="sidebar">
   <div class="sidebar-header">
     <a class="sidebar-brand" href="#"><span class="highlight">GMG</span> CPanel</a>
@@ -21,7 +8,7 @@
   <div class="sidebar-menu">
     <ul class="sidebar-nav">
     
-      <li class="dropdown <?php echo $seciones = ($seciones == 'active') ? active : '';?>">
+      <li class="dropdown <?php echo $secciones = ($secciones == 'active') ? active : '';?>">
         <a href="#">
           <div class="icon">
             <i class="fa fa-tasks" aria-hidden="true"></i>

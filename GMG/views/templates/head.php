@@ -9,17 +9,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> GMG | cambiar </title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<?php $xajax->printJavascript('../../controller/xajax/');?>
+  	<title> GMG | cambiar </title>
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	
+  	<link rel="stylesheet" type="text/css" href= "<?= CSS?>vendor.css">
+  	<link rel="stylesheet" type="text/css" href= "<?= CSS?>flat-admin.css">
 
-  <link rel="stylesheet" type="text/css" href= "<?= CSS?>vendor.css">
-  <link rel="stylesheet" type="text/css" href= "<?= CSS?>flat-admin.css">
-
-  <!-- Theme -->
-  <link rel="stylesheet" type="text/css" href= "<?= CSS?>theme/blue-sky.css">
-  <link rel="stylesheet" type="text/css" href= "<?= CSS?>theme/blue.css">
-  <link rel="stylesheet" type="text/css" href= "<?= CSS?>theme/red.css">
-  <link rel="stylesheet" type="text/css" href= "<?= CSS?>theme/yellow.css">
+  	<!-- Theme -->
+  	<link rel="stylesheet" type="text/css" href= "<?= CSS?>theme/blue-sky.css">
+  	<link rel="stylesheet" type="text/css" href= "<?= CSS?>theme/blue.css">
+  	<link rel="stylesheet" type="text/css" href= "<?= CSS?>theme/red.css">
+  	<link rel="stylesheet" type="text/css" href= "<?= CSS?>theme/yellow.css">
+  	<link rel="stylesheet" type="text/css" href= "<?= CSS?>custom.css">
   
+	<script src="<?= JS?>app_instagram.js" defer></script>
 </head>

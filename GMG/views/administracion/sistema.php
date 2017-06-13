@@ -1,85 +1,160 @@
 <?php 
 	include '..//..//app/config.php';
+	include URL_CONTROLLER . 'con_sistema.php';
 	include URL_TEMPLATES . 'head.php';
 ?>
-<body>
-  <div class="app app-default app-inbox">
-	<?php include URL_TEMPLATES . 'aside.php'; ?>
-	
-	<script type="text/ng-template" id="sidebar-dropdown.tpl.html">
-    	<div class="dropdown-background">
-         <div class="bg"></div>
-        </div>
-  		<div class="dropdown-container">
-    		{{list}}
-  		</div>
-	</script>
-	
-	<div class="app-container">
-		<div class="row">
+  <body>
+	  <div class="app app-default app-inbox">
+		<?php include URL_TEMPLATES . 'aside.php'; ?>
+	  
+	    <div class="app-container">
+			<div class="row">
 		    <div class="col-lg-12">
 		      <div class="card">
 		        <div class="card-body app-heading">
 		          <img class="profile-img" src="<?= IMAGES?>profile.png">
 		          <div class="app-title">
 		            <div class="title"><span class="highlight">Sistema</span></div>
-		            <div class="description">Frontend Developer</div>
+		            <div class="description">Administrar usuarios</div>
 		          </div>
 		        </div>
 		      </div>
 		    </div>
 		  </div>
 		  
-		<?php include URL_TEMPLATES."btn_floating.php";?> 
+		<?php include URL_TEMPLATES."btn_floating.php";?>
+		
 		<div class="row">
-		    <div class="col-lg-12">
-		      <div class="card card-tab">
-		        <div class="card-header">
-		          <ul class="nav nav-tabs">
-		            <li role="tab1" class="active">
-		              <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Contenido</a>
-		            </li>
-		          </ul>
-		        </div>
-		        <div class="card-body no-padding tab-content">
-		          <div role="tabpanel" class="tab-pane active" id="tab1">
-		            <div class="row">
-		              <div class="col-md-12 col-sm-12">
-		                <div class="section">
-		                  <div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i> PROPIEDADES DE RECONTRUCCI&oacute;N</div>
-		                  <div class="section-body __indent">Proyectos residenciales, comerciales u oficina en plano, construcci&oacute;n o nuevas en Florida - USA</div>
-		                </div>
-		                <div class="section">
-		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i> PROPIEDADES EN RE-VENTA</div>
-		                  <div class="section-body __indent">Computer Engineering, Khon Kaen University</div>
-		                </div>
-		                <div class="section">
-		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i> ASESOR&iacute;A EN INMIGRACI&oacute;N A USA</div>
-		                  <div class="section-body __indent">Computer Engineering, Khon Kaen University</div>
-		                </div>
-		                <div class="section">
-		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i> FINANCIAMIENTO COMERCIAL / COMERCIAL</div>
-		                  <div class="section-body __indent">Computer Engineering, Khon Kaen University</div>
-		                </div>
-		                <div class="section">
-		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i> NEGOCIOS RENTABLES EN $</div>
-		                  <div class="section-body __indent">Computer Engineering, Khon Kaen University</div>
-		                </div>
-		              	<div class="section">
-		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i> INVERSIONES DE CAPITAL</div>
-		                  <div class="section-body __indent">Computer Engineering, Khon Kaen University</div>
-		                </div>
-		              </div>
-		              
-		            </div>
-		          </div>
-		        </div>
-		    	</div>
+			<div class="col-xs-12">
+		    	<div class="card">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+						    <div class="btn-group pull-right">
+								<button type='button' class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus" ></span> Nuevo Usuario</button>
+							</div>
+							<h4><i class='fa fa-search'></i> Buscar Usuarios</h4>
+						</div>			
+						<div class="panel-body">
+							<?php
+							include URL_MODAL."registro_usuarios.php";
+							include URL_MODAL."editar_usuarios.php";
+							include URL_MODAL."cambiar_password.php";
+							?>
+							<form class="form-horizontal" role="form" id="datos_cotizacion">
+								<div class="form-group row">
+									<label for="q" class="col-md-2 control-label">Nombres:</label>
+									<div class="col-md-4">
+										<input type="text" class="form-control" id="q" placeholder="Nombre" onkeyup='load(1);'>
+									</div>
+									<div class="col-md-3">
+										<button type="button" class="btn btn-default" onclick='load(1);'>
+											<span class="fa fa-search"></span> Buscar</button>
+										<span id="loader"></span>
+									</div>
+								</div>
+							</form>
+							<div class='outer_div'></div>
+						</div>
+					</div>
+				</div>
+			</div>
 			</div>
 		</div>
 	</div>
-</div>
-  <script type="text/javascript" src="<?= JS?>vendor.js"></script>
-  <script type="text/javascript" src="<?= JS?>app.js"></script>
+	<script type="text/javascript" src="<?= JS?>vendor.js"></script>
+	<script type="text/javascript" src="<?= JS?>app.js"></script>
 </body>
 </html>
+<script>
+$(document).ready(function(){
+// 	xajax_inicioLoad('1',$("#q").val());
+	load(1);
+});
+function load(page){
+	var q= $("#q").val();
+	$("#loader").fadeIn('slow');
+	$.ajax({
+		 url:'./ajax/buscar_usuarios.php?action=ajax&page='+page+'&q='+q,
+		 beforeSend: function(objeto){
+		 $('#loader').html('<img src="./ajax/ajax-loader.gif"> Cargando...');
+		 },
+		success:function(data){
+			$(".outer_div").html(data).fadeIn('slow');
+			$('#loader').html('');
+		}
+	})
+}
+function eliminar (id){
+	var q= $("#q").val();
+	if (confirm("Realmente deseas eliminar el usuario")){	
+		$.ajax({
+	        type: "GET",
+	        url: "./ajax/buscar_usuarios.php",
+	        data: "id="+id,"q":q,
+			beforeSend: function(objeto){
+				$("#resultados").html("Mensaje: Cargando...");
+			},
+	        success: function(datos){
+			$("#resultados").html(datos);
+			load(1);
+			}
+		});
+	}
+}
+
+$( "#editar_usuario" ).submit(function( event ) {
+  $('#actualizar_datos2').attr("disabled", true);
+  
+ var parametros = $(this).serialize();
+	 $.ajax({
+			type: "POST",
+			url: "ajax/editar_usuario.php",
+			data: parametros,
+			 beforeSend: function(objeto){
+				$("#resultados_ajax2").html("Mensaje: Cargando...");
+			  },
+			success: function(datos){
+			$("#resultados_ajax2").html(datos);
+			$('#actualizar_datos2').attr("disabled", false);
+			load(1);
+		  }
+	});
+  event.preventDefault();
+})
+
+$( "#editar_password" ).submit(function( event ) {
+  $('#actualizar_datos3').attr("disabled", true);
+  
+ var parametros = $(this).serialize();
+	 $.ajax({
+			type: "POST",
+			url: "ajax/editar_password.php",
+			data: parametros,
+			 beforeSend: function(objeto){
+				$("#resultados_ajax3").html("Mensaje: Cargando...");
+			  },
+			success: function(datos){
+			$("#resultados_ajax3").html(datos);
+			$('#actualizar_datos3').attr("disabled", false);
+			load(1);
+		  }
+	});
+  event.preventDefault();
+})
+	function get_user_id(id){
+		$("#user_id_mod").val(id);
+	}
+
+	function obtener_datos(id){
+			var nombres = $("#nombres"+id).val();
+			var apellidos = $("#apellidos"+id).val();
+			var usuario = $("#usuario"+id).val();
+			var email = $("#email"+id).val();
+			
+			$("#mod_id").val(id);
+			$("#firstname2").val(nombres);
+			$("#lastname2").val(apellidos);
+			$("#user_name2").val(usuario);
+			$("#user_email2").val(email);
+	}
+</script>

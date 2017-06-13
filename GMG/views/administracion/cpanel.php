@@ -1,5 +1,6 @@
 <?php 
 	include '..//..//app/config.php';
+	include URL_CONTROLLER . 'con_cpanel.php';
 	include URL_TEMPLATES . 'head.php';
 ?>
 <body>

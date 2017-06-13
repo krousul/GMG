@@ -1,6 +1,4 @@
 <?php 
-	include ('config.php');
-
 	class Conexion extends PDO {
 		private $tipo_de_base = DB_TYPE;
 		private $host = DB_HOST;

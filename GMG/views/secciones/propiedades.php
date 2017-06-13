@@ -1,5 +1,6 @@
 <?php 
 	include '..//..//app/config.php';
+	include URL_CONTROLLER . 'con_propiedades.php';
 	include URL_TEMPLATES . 'head.php';
 ?>
 <body>
@@ -47,15 +48,15 @@
 		            <div class="row">
 		              <div class="col-md-12 col-sm-12">
 		                <div class="section">
-		                  <div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i> PROPIEDADES DE RECONTRUCCIÓN</div>
-		                  <div class="section-body __indent">Proyectos residenciales, comerciales u oficina en plano, construcción o nuevas en Florida - USA</div>
+		                  <div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i> PROPIEDADES DE RECONTRUCCI&oacute;N</div>
+		                  <div class="section-body __indent">Proyectos residenciales, comerciales u oficina en plano, construcci&oacute;n o nuevas en Florida - USA</div>
 		                </div>
 		                <div class="section">
 		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i> PROPIEDADES EN RE-VENTA</div>
 		                  <div class="section-body __indent">Computer Engineering, Khon Kaen University</div>
 		                </div>
 		                <div class="section">
-		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i> ASESORÍA EN INMIGRACIÓN A USA</div>
+		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i> ASESOR&Iacute;A EN INMIGRACI&oacute;N A USA</div>
 		                  <div class="section-body __indent">Computer Engineering, Khon Kaen University</div>
 		                </div>
 		                <div class="section">
