@@ -30,7 +30,7 @@
 					<div class="panel panel-success">
 						<div class="panel-heading">
 						    <div class="btn-group pull-right">
-								<button type='button' class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus" ></span> Nuevo Usuario</button>
+								<button type='button' onClick="document.getElementById('guardar_usuario').reset();$('#closeSucces').hide();" class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus" ></span> Nuevo Usuario</button>
 							</div>
 							<h4><i class='fa fa-search'></i> Buscar Usuarios</h4>
 						</div>			

@@ -4,6 +4,7 @@ class Documents extends Conexion{
 	
 	private $module;
 	private $seccion;
+	private $element;
 	private $name;
 	private $type;
 	private $size;
@@ -30,9 +31,15 @@ class Documents extends Conexion{
 		}
 	}
 	
-	public function __construct3($module,$seccion,$descripcion){
+	public function __construct2($module,$idiom){
+		$this->module=$module;
+		$this->idiom=$idiom;
+	}
+	
+	public function __construct4($module,$seccion,$element,$descripcion){
 		$this->module=$module;
 		$this->seccion=$seccion;
+		$this->element=$element;
 		$this->descripcion=$descripcion;		
 	}
 	
@@ -81,9 +88,10 @@ class Documents extends Conexion{
 		try {
 			//Guardando textos
 			
-			$consulta = sprintf("INSERT INTO text (id_module, id_seccion,id_idiom,description) VALUES ('%s','%s','%s','%s');",
+			$consulta = sprintf("INSERT INTO text (id_module, id_seccion,id_element,id_idiom,description) VALUES ('%s','%s','%s','%s','%s');",
 					 $this->module,
 					 $this->seccion,
+					 $this->element,
 					 $this->idiom,
 					 $this->descripcion);
 			
@@ -103,45 +111,32 @@ class Documents extends Conexion{
 		$PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 		try {
-			if($this->id == null){
-				$sentence = sprintf("SELECT
-										fl.id_module AS modulo,
-										fl.id_seccion AS seccion,
-										LAN.idiom AS idioma,
-										fl.name,
-										fl.type,
-										fl.size,
-										fl.url
-										FROM files fl
-									INNER JOIN idiom LAN ON fl.id_idiom = LAN.id_idiom
-									WHERE id_module = '%s'
-									AND id_seccion = '%s' 
-									AND LAN.id_idiom = '%s' 
-									AND name = '%s';",
-						$this->module,
-						$this->seccion,
-						$this->idiom,
-						$this->name);
-			}else{
-				$sentence = sprintf("SELECT 
-										fl.id_module AS modulo,
-										fl.id_seccion AS seccion,
-										LAN.idiom AS idioma,
-										fl.name,
-										fl.type,
-										fl.size,
-										fl.url
-										FROM files fl
-									INNER JOIN idiom LAN ON fl.id_idiom = LAN.id_idiom
-									WHERE id = '%s';",$this->id);
-			}
+		
+			$sentence = sprintf("SELECT
+									fl.id,
+									fl.id_module AS modulo,
+									fl.id_seccion AS seccion,
+									LAN.idiom AS idioma,
+									fl.name,
+									fl.type,
+									fl.size,
+									fl.url
+									FROM files fl
+								INNER JOIN idiom LAN ON fl.id_idiom = LAN.id_idiom
+								WHERE id_module = '%s'
+								AND id_seccion = '%s' 
+								AND LAN.id_idiom = '%s';",
+					$this->module,
+					$this->seccion,
+					$this->idiom);
 		
 		$Result = $PDO->prepare($sentence);
 		$Result->setFetchMode(PDO::FETCH_ASSOC);
 		$Result->execute();
 		
-		while ($row = $Result->fetch())
-		{
+		$row = $Result->fetch();
+		
+		if( $row['url'] == $this->url){
 			$FILE['module'] = utf8_decode($row['modulo']);
 			$FILE['seccion'] = utf8_decode($row['seccion']);
 			$FILE['idiom'] = utf8_decode($row['idioma']);
@@ -149,7 +144,8 @@ class Documents extends Conexion{
 			$FILE['type'] = utf8_decode($row['type']);
 			$FILE['size'] = utf8_decode($row['size']);
 			$FILE['url'] = utf8_decode($row['url']);
-			
+		}else{
+			$FILE = $this->id = $row['id'];
 		}
 		
 		} catch (Exception $e) {
@@ -168,32 +164,38 @@ class Documents extends Conexion{
 		try {
 		
 			$sentence = sprintf("SELECT 
+									txt.id,
 									txt.id_module AS modulo,
 									txt.id_seccion AS seccion,
+									txt.id_element AS elemento,
 									LAN.idiom AS idioma,
 									txt.description AS descripcion
 									FROM text txt 
 								INNER JOIN idiom LAN ON txt.id_idiom = LAN.id_idiom
 								WHERE id_module = '%s' 
 								AND id_seccion = '%s' 
-								AND description = '%s'
+								AND id_element = '%s' 
 								AND LAN.id_idiom = '%s';",
 					$this->module,
 					$this->seccion,
-					$this->descripcion,
+					$this->element,
 					$this->idiom);
 			$Result = $PDO->prepare($sentence);
 			$Result->setFetchMode(PDO::FETCH_ASSOC);
 			$Result->execute();
 			
 			if($Result->rowCount() > 0){
-				while ($row = $Result->fetch())
-				{
+				$row = $Result->fetch();
+				if(utf8_decode($row['descripcion']) == $this->descripcion){
 					$TEXT['module'] = utf8_decode($row['modulo']);
 					$TEXT['seccion'] = utf8_decode($row['seccion']);
+					$TEXT['elemento'] = utf8_decode($row['elemento']);
 					$TEXT['idiom'] = utf8_decode($row['idioma']);
 					$TEXT['descripcion'] = utf8_decode($row['descripcion']);
+				}else{
+					$TEXT = $this->id = utf8_decode($row['id']);
 				}
+					
 			}
 			
 		} catch (Exception $e) {
@@ -203,6 +205,90 @@ class Documents extends Conexion{
 		
 		return $TEXT;
 		
+	}
+	
+	public function updateText(){
+		
+		$PDO = new Conexion();
+		$PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		
+		try {
+			
+			$sentence = sprintf("UPDATE
+									text
+								SET description = '%s'
+								WHERE id = '%s';",
+					$this->descripcion,
+					$this->id);
+			$Result = $PDO->prepare($sentence);
+			$Result->execute();
+						
+		} catch (Exception $e) {
+			echo "Error: ".$e->getMessage()."\n Linea : ".__LINE__;
+			//echo "Error: ".$e->getMessage()."\n Linea : ".__LINE__."\nTrazado : ".$e->getTraceAsString()."\n";
+		}
+		
+		return $TEXT;
+		
+	}
+	
+	public function updateFile(){
+		
+		$PDO = new Conexion();
+		$PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		
+		try {
+			
+			$sentence = sprintf("UPDATE
+									files
+								SET 
+									name = '%s',
+									type = '%s',
+									size =  %s ,
+									url =  '%s'
+								WHERE id = '%s';",
+						$this->name,
+						$this->type,
+						$this->size,
+						$this->url,
+						$this->id);
+			$Result = $PDO->prepare($sentence);
+			$Result->execute();
+						
+		} catch (Exception $e) {
+			echo "Error: ".$e->getMessage()."\n Linea : ".__LINE__;
+			//echo "Error: ".$e->getMessage()."\n Linea : ".__LINE__."\nTrazado : ".$e->getTraceAsString()."\n";
+		}
+		
+		return $TEXT;
+		
+	}
+	public function getDocuments() {
+		
+		$PDO = new Conexion();
+		$PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		
+		try{	
+			$sentence = "SELECT * FROM text";
+			$sentence .= " WHERE id_module = '$this->module' and id_idiom = '$this->idiom';";
+			$sResultText= $PDO->prepare($sentence);
+			$sResultText->setFetchMode(PDO::FETCH_ASSOC);
+			$sResultText->execute();
+			
+			$sentence= "SELECT * FROM files";
+			$sentence.= " WHERE  id_module = '$this->module' and id_idiom = '$this->idiom';";
+			$sResultFile= $PDO->prepare($sentence);
+			$sResultFile->setFetchMode(PDO::FETCH_ASSOC);
+			$sResultFile->execute();
+			
+			if($sResultText->rowCount() > 0 || $sResultFile->rowCount() > 0 )
+				return array("text" => $sResultText->fetchAll(PDO::FETCH_ASSOC),"file" => $sResultFile->fetchAll(PDO::FETCH_ASSOC));
+			else
+				return false;
+		} catch (Exception $e) {
+			echo "Error: ".$e->getMessage()."\n Linea : ".__LINE__;
+			//echo "Error: ".$e->getMessage()."\n Linea : ".__LINE__."\nTrazado : ".$e->getTraceAsString()."\n";
+		}
 	}
 
 	public function getId(){

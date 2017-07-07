@@ -55,7 +55,6 @@
           <ul>
             <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Configuraci&oacute;n Generales</li>
             <li><a href="<?= URL_CONF_GEN?>banner.php"> Banner Principal</a></li>
-            <li><a href="<?= URL_CONF_GEN?>proyectos.php"> Proyectos</a></li>
             <li class="line"></li>
           </ul>
         </div>

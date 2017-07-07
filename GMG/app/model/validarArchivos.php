@@ -2,15 +2,6 @@
 
 include 'subirArchivos.php';
 
-//Ejecucion INICIAL
-//Despues de un Response desde ValidarArchivos.php
-if($_REQUEST || $_FILES){
-	$headers[] = countResponse($_REQUEST,$_FILES,$IDFORMS);
-	$showViews = verifyFiles($_FILES,$headers,MODULE_INV,$PARAMETERSVALIDATION);//solo cambiar el MODULE
-	$moduleSeccion = identitySeccion($_REQUEST, $IDFORMS);
-	$SHOWFORMS = innerContents($showViews,$moduleSeccion['module']);
-}
-
 function countResponse($REQUEST,$FILES,$moduloSeccion){
 	
 	$splitArray = identitySeccion($REQUEST,$moduloSeccion);
@@ -55,18 +46,24 @@ function verifyFiles($FILES,$cabeceras,$modulo,$PARAMETERSVALIDATION){
 	
 	$text = $cabeceras[0][0][0]; //Accediendo a todos los textos
 	
-	$text = compareForIdiom($ALLIDIOM,$text);	
-	$idioma = $text['idioma'];
-	$text = $text['text'];
+	$textCompare = compareForIdiom($ALLIDIOM,$text);	
+	$idioma = $textCompare['idioma'];
+	$text = $textCompare['text'];
+	$folderIdiom = $textCompare['description'];
 	
 	if($text != null){
 		for ($i = 1; $i < count($text)+1;$i++){
-			$Text = new Documents($modulo, $seccion, $text[$i]);
+			$Text = new Documents($modulo, $seccion,$i,$text[$i]);
 			$Text->setIdiom($idioma);
 			$datosTexto = $Text->getText();
-			if($datosTexto == null){
-				$Text->setText();
-				$allText[] = $Text->getText();
+			if(!is_array($datosTexto)){
+				if($datosTexto == null){
+					$Text->setText();
+					$allText[] = $Text->getText();
+				}else{
+					$Text->updateText($datosTexto);
+					$allText[] = $Text->getText();
+				}
 			}else{
 				$allText[] = $datosTexto;
 			}
@@ -87,35 +84,51 @@ function verifyFiles($FILES,$cabeceras,$modulo,$PARAMETERSVALIDATION){
 					if(in_array($FILES[$nameFile]["type"],$ALLOWFORMAT) && $FILES[$nameFile]["size"] <= $LIMITEUPLOAD){
 						
 						//Ruta de DB
-						$RUTA_DB = $URL_DB.$modulo.'/';
+						$RUTA_DB = $URL_DB.$modulo.'/'.$folderIdiom.'/';
 						$archivos[$i][] = $RUTA_DB.$FILES[$nameFile]["name"];
 						
 						//Ruta de directorio
 						$RUTA_DIR = $URL_DIR.$modulo.'\\';
+						$RUTA_DIR = str_replace("\\", "/", $RUTA_DIR);//solo para el servidor
+						if(!file_exists($RUTA_DIR)){
+							$ValorRuta = mkdir($RUTA_DIR);		
+							chmod($RUTA_DIR, 0777);
+						}
+						$RUTA_DIR.=$folderIdiom.'\\';
+						$RUTA_DIR = str_replace("\\","/", $RUTA_DIR);//Solo para el servidor
 						$archivo = $RUTA_DIR.$FILES[$nameFile]["name"];
+						chmod($archivo, 0777);
 						
 						$File = new Documents($modulo, $seccion, $archivos[$i][0], $archivos[$i][1], $archivos[$i][2], $archivos[$i][3]);
 						$File->setIdiom($idioma);
 						
-						if(!file_exists($RUTA)){
-							$ValorRuta = mkdir($RUTA);				
+						if(!file_exists($RUTA_DIR)){
+							$ValorRuta = mkdir($RUTA_DIR);		
+							chmod($RUTA_DIR, 0777);
 						}
 						
+						$datosFiles = $File->getFile();
+						
 						if(!file_exists($archivo)){
-				
 							$resultado = @move_uploaded_file($FILES[$nameFile]["tmp_name"], $archivo);
-							if($resultado){
-								$File->setFiles();
+							if($datosFiles == null){
+								if($resultado){
+									$File->setFiles();
+									$allFiles[] = $File->getFile();
+									$modoMsj = "success";
+								} else {
+									$MSJ = $MSJ_ERRONEO.'No se pudo guardar el archivo';
+									$modoMsj = "danger";
+								}
+							}else{
+								$File->updateFile();
 								$allFiles[] = $File->getFile();
-								$modoMsj = "success";
-							} else {
-								$MSJ = $MSJ_ERRONEO.'No se pudo guardar el archivo';
-								$modoMsj = "danger";
 							}
 				
 						} else {
-							//$MSJ = $MSJ_ATENCION.'El archivo ya existe';
+							$File->updateFile();
 							$allFiles[] = $File->getFile();
+							$MSJ = $MSJ_ATENCION.'El archivo ya existe';
 							$modoMsj = "warning";
 						}
 							
@@ -173,6 +186,12 @@ function verifyFiles($FILES,$cabeceras,$modulo,$PARAMETERSVALIDATION){
 function identitySeccion($REQUEST,$moduloSeccion){
 	
 	foreach ($REQUEST as $keyRequest => $valueRequest) {
+		if($keyRequest == 'xjxfun' || 
+		   $keyRequest == 'xjxr' || 
+		   $keyRequest == 'xjxargs' || 
+		   $keyRequest == 'getContentsIdiom'){
+				unset($REQUEST[$keyRequest]);
+		}
 		foreach ($moduloSeccion as $keyModule => $valueModule) {
 			foreach ( $valueModule as $keySeccion => $valueSeccion) {
 				if($valueRequest == $valueSeccion){
@@ -183,6 +202,7 @@ function identitySeccion($REQUEST,$moduloSeccion){
 			}
 		}
 	}
+	
 return array("module" => $getValueModule,"request" => $REQUEST);
 }
 
@@ -191,37 +211,60 @@ function compareForIdiom($idiom,$text){
 		foreach ( $idiom as $keyIdiom => $valueIdiom) {
 			if($valueIdiom == $valueText){
 				$getValueIdiom = $valueIdiom;
+				$descIdiom = $keyIdiom;
 				unset($text[$keyText]);
 				break;
 			}
 		}
 	}
 	
-	return array("idioma" => $getValueIdiom,"text" => $text);
+	return array("idioma" => $getValueIdiom,"text" => $text,"description" => $descIdiom);
 }
 
-function innerContents ($showviews,$IDFORMS){
+
+
+function getComponents($module,$idiom,$GLOBALFORM){
 	
-	$files = $showviews['ALL_FILE'];
-	$text = $showviews['ALL_TEXT'];
+	$documents = new Documents($module,$idiom);
+	$arrayValues = $documents->getDocuments();
 	
-	for($i = 0; $i <= count($text);$i++){
-		foreach($text[$i] as $keytext => $valuetext){
-			if($keytext == "descripcion"){
-				$SHOW[$IDFORMS]['descriptionText'][] = $valuetext;
+	$texts = $arrayValues['text'];
+	$files = $arrayValues['file'];
+	
+	if($texts != null){
+		for($i = 0; $i <= count($texts);$i++){
+			foreach($texts[$i] as $keytext => $valuetext){
+				if($keytext == "id_seccion"){
+					$secciontext[] = $valuetext;
+				}
+			}
+		}
+		for($i = 0; $i <= count($texts);$i++){
+			foreach($texts[$i] as $keytext => $valuetext){
+				if($keytext == "description"){
+					$SHOW[$secciontext[$i]]['descriptionText'][] = $valuetext;
+				}
 			}
 		}
 	}
 	
-	for($i = 0; $i <= count($files);$i++){
-		foreach($files[$i] as $keyfiles => $valuefiles){
-			if($keyfiles == "url"){
-				//tratamiento url
-				//$url = str_replace("/", "\\", $valuefiles);
-				$SHOW[$IDFORMS]['urlImage'][] = $valuefiles;
+	if($files != null){
+		for($i = 0; $i <= count($files);$i++){
+			foreach($files[$i] as $keyfiles => $valuefiles){
+				if($keyfiles== "id_seccion"){
+					$seccionFile[] = $valuefiles;
+				}
+			}
+		}
+		for($i = 0; $i <= count($files);$i++){
+			foreach($files[$i] as $keyfiles => $valuefiles){
+				if($keyfiles == "url"){
+					$SHOW[$seccionFile[$i]]['urlImage'][] = $valuefiles;
+				}
 			}
 		}
 	}
+	
 	
 	return $SHOW;
 	

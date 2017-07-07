@@ -1,26 +1,31 @@
 <?php
+
+/*Includes de la connexion y los 
+ * controladores propias de la 
+ * seccion del modulo
+ * y controladores externos*/
+
 	include URL_APP.'conex.php';
 	include URL_MODEL.'mod_inversiones.php';
+	include URL_MODEL.'mod_idioma.php';
+	include URL_MODEL.'validarArchivos.php'; //archivo para guardar imagenes y textos en todos los modulos
 	$url = inversiones;
 	include URL_APP.'xajax.php';
+
+	//Ejecucion INICIAL
+	//Despues de un Response desde ValidarArchivos.php
+	if($_REQUEST || $_FILES){ //sin aceptar parametros xajax
+		$headers[] = countResponse($_REQUEST,$_FILES,$IDFORMS);
+		$showViews = verifyFiles($_FILES,$headers,MODULE_INV,$PARAMETERSVALIDATION);//solo cambiar el MODULE
+		$SHOWFORMS= getComponents(MODULE_INV,$showViews['IDIOM'],$GLOBALFORM);
+	}
 	
-	$column1 = '';
-	$column2 = '';
-	$column3 = '';
-	$column4 = '';
-	$onCLick = '';
+	//Rutina para cargar elementos dependiendo del idioma
 	
-// 	$proyecto = new proyectos();
-// 	$arrayProyecto = $proyecto->getProyecto();
-	
-// 	foreach ($arrayProyecto As $proyect){
-// 		$onCLick = "onClick=\"$('#nom_proyecto').text('{$proyect['nom_proyecto']}');$('#id_proyecto').val('{$proyect['id_proyectos']}');\";";
-		
-// 		switch ($proyect['num_columna']) {
-// 			case 1 : $column1 .= "<li><button type='button' {$onCLick} data-toggle='modal' data-target='#imgInversiones' id='{$proyect['id_proyectos']}' class='btn btn-default btn-success'>{$proyect['nom_proyecto']}</button></li>"; break;
-// 			case 2 : $column2 .= "<li><button type='button' {$onCLick} data-toggle='modal' data-target='#imgInversiones' id='{$proyect['id_proyectos']}' class='btn btn-default btn-success'>{$proyect['nom_proyecto']}</button></li>"; break;
-// 			case 3 : $column3 .= "<li><button type='button' {$onCLick} data-toggle='modal' data-target='#imgInversiones' id='{$proyect['id_proyectos']}' class='btn btn-default btn-success'>{$proyect['nom_proyecto']}</button></li>"; break;
-// 			case 4 : $column4 .= "<li><button type='button' {$onCLick} data-toggle='modal' data-target='#imgInversiones' id='{$proyect['id_proyectos']}' class='btn btn-default btn-success'>{$proyect['nom_proyecto']}</button></li>"; break;
-// 		}
-// 	}
+	if(!$_REQUEST && !$_FILES){
+		$SHOWFORMS= getComponents(MODULE_INV,ESPANOL,$GLOBALFORM);
+	} else if($_REQUEST['getContentsIdiom']){
+		$SHOWFORMS = getComponents(MODULE_INV,$_REQUEST['getContentsIdiom'],$GLOBALFORM);
+	}
+
 ?>

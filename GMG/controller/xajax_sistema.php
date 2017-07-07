@@ -76,7 +76,6 @@
 				$Result->setFetchMode(PDO::FETCH_ASSOC);
 				$Result->execute();
 
-				$objResponse->alert(print_r('HOLA', true));
                 if ($Result->rowCount() > 0){
                     $errors[] = "Lo sentimos , el nombre de usuario &oacute; la direcci&oacute;n de correo electr&oacute;nico ya est&aacute;¡ en uso.";
                 } else {
@@ -122,7 +121,7 @@
         	}
         	
         	$html = "<div class='alert alert-success' role='alert'>
-			        	<button type='button' class='close' data-dismiss='alert'>&times;</button>
+			        	<button type='button' id='closeSucces' class='close' data-dismiss='alert'>&times;</button>
 				        	<strong>Â¡Bien hecho!</strong>
 				        	{$list}
 		        	</div>";

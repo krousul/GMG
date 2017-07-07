@@ -12,15 +12,14 @@ define('URL_MODAL', ROOT . 'views'. DS . 'administracion' . DS . 'modal' . DS);
 define('URL_AJAX', ROOT . 'views'. DS . 'administracion' . DS . 'ajax' . DS);
 
 
-/*--------------------------------------------------------------------*/
-
-define('BASE_URL', 'http://localhost/GMG/branches/GMG_SUB_2/GMG/');
+define('BASE_URL', 'http://localhost:8080/GMG/');
 define('URL_SECCIONES', BASE_URL . 'views/secciones/');
 define('URL_REDES', BASE_URL . 'views/redes_sociales/');
 define('URL_CONF_GEN', BASE_URL . 'views/conf_general/');
 define('URL_ADMIN', BASE_URL . 'views/administracion/');
 define('URL_VIEWS', BASE_URL . 'views'. DS );
 define('URL_UPLOAD_IMAGES_DB', BASE_URL . 'assets/images/upload/');
+define('URL_VIEWS_IDIOM', BASE_URL . 'views/secciones/');
 
 define('CSS', BASE_URL . 'assets/css/');
 define('JS', BASE_URL . 'assets/js/');
@@ -50,18 +49,34 @@ define('DB_TYPE', 'mysql');
  * */
 
 define('MODULE_INV', 'Inversiones');
-define('MODULE_INV', 'Inversiones');
+define('MODULE_PROP', 'Propiedades');
+define('MODULE_BANNER', 'Banner');
+define('MODULE_TEAM', 'Equipo');
 
-$ALLMODULE = array("".MODULE_INV."");
+$ALLMODULE = array(MODULE_INV,
+				   MODULE_PROP,
+				   MODULE_BANNER,
+				   MODULE_TEAM);
 
 //configuracion de las variable globales por secciones de formularios
 
 define("GLOBAL_FORM_1", 1);
 define("GLOBAL_FORM_2", 2);
 define("GLOBAL_FORM_3", 3);
+define("GLOBAL_FORM_4", 4);
+define("GLOBAL_FORM_5", 5);
+define("GLOBAL_FORM_6", 6);
+define("GLOBAL_FORM_7", 7);
+define("GLOBAL_FORM_8", 8);
+define("GLOBAL_FORM_9", 9);
+define("GLOBAL_FORM_10", 10);
+define("GLOBAL_FORM_11", 11);
+define("GLOBAL_FORM_12", 12);
 
-$GLOBALFORM = array("".GLOBAL_FORM_1."","".GLOBAL_FORM_2."","".GLOBAL_FORM_3."");
-
+$GLOBALFORM = array(GLOBAL_FORM_1,GLOBAL_FORM_2,GLOBAL_FORM_3,
+					GLOBAL_FORM_4,GLOBAL_FORM_5,GLOBAL_FORM_6,
+					GLOBAL_FORM_7,GLOBAL_FORM_8,GLOBAL_FORM_9,
+					GLOBAL_FORM_10,GLOBAL_FORM_11,GLOBAL_FORM_12,);
 /*Aqui se encuentran todos los ID de los formularios
  * de los cuales cada formulario se vera identificado
  * dependiendo de cuantos elementos esten integrados*/

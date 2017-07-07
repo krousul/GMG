@@ -23,7 +23,7 @@
 		        <div class="card-body app-heading">
 		          <img class="profile-img" src="<?= IMAGES?>profile.png">
 		          <div class="app-title">
-		            <div class="title"><span class="highlight">Intagram</span></div>
+		            <div class="title"><span class="highlight">Instagram</span></div>
 		            <div class="description">Frontend Developer</div>
 		          </div>
 		        </div>

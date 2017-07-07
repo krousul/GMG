@@ -1,9 +1,9 @@
 <?php 
+
 	include '..//..//app/config.php';
 	include URL_CONTROLLER . 'con_inversiones.php';
 	include URL_TEMPLATES . 'head.php';
-	include URL_MODEL.'validarArchivos.php';
-
+		
 ?>
 <body>
   <div class="app app-default ">
@@ -53,6 +53,7 @@
 		              <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Contenido</a>
 		            </li>
 		          </ul>
+		          <div id="idiom" class="btn-group"></div>
 		        </div>
 		        
 		        <div class="card-body no-padding tab-content">
@@ -64,11 +65,11 @@
 		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i> SECCION 1</div>
 		                  <div class="section-body">
 			                 <div class="thumbnail">
-								<img src="<?= $SHOWFORMS[$IDFORMS[MODULE_INV][0]]['urlImage'][0]; ?>" class="img-responsive">
+								<img src="<?= $SHOWFORMS[$IDFORMS[MODULE_INV][0]]['urlImage'][0]; ?>" class="img-responsive"  height="300px" width="300px">
 								<div class="caption">
 									<h3 class="title"><?= $SHOWFORMS[$IDFORMS[MODULE_INV][0]]['descriptionText'][0]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
 								</div>
-							    <div>
+							    <div align="center">
 							      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#<?= $IDFORMS[MODULE_INV][0]; ?>">
 					                  <div><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;EDITAR</div>
 							      </button>
@@ -82,11 +83,11 @@
 		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i>SECCION 2</div>
 		                  <div class="section-body">
 			                 <div class="thumbnail">
-								<img src="<?= $SHOWFORMS[$IDFORMS[MODULE_INV][1]]['urlImage'][0]; ?>" class="img-responsive">
+								<img src="<?= $SHOWFORMS[$IDFORMS[MODULE_INV][1]]['urlImage'][0]; ?>" class="img-responsive" height="300px" width="300px">
 								<div class="caption">
 									<h3 class="title"><?= $SHOWFORMS[$IDFORMS[MODULE_INV][1]]['descriptionText'][0]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
 								</div>
-							    <div>
+							    <div align="center">
 							      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#<?= $IDFORMS[MODULE_INV][1]; ?>">
 					                  <div><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;EDITAR</div>
 							      </button>
@@ -100,11 +101,11 @@
 		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i>SECCION 3</div>
 		                  <div class="section-body">
 			                 <div class="thumbnail">
-								<img src="<?= $SHOWFORMS[$IDFORMS[MODULE_INV][2]]['urlImage'][0]; ?>" class="img-responsive">
+								<img src="<?= $SHOWFORMS[$IDFORMS[MODULE_INV][2]]['urlImage'][0]; ?>" class="img-responsive" height="300px" width="300px">
 								<div class="caption">
 									<h3 class="title"><?= $SHOWFORMS[$IDFORMS[MODULE_INV][2]]['descriptionText'][0]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
 								</div>
-							    <div>
+							    <div align="center">
 							      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#<?= $IDFORMS[MODULE_INV][2]; ?>">
 					                  <div><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;EDITAR</div>
 							      </button>
@@ -275,11 +276,13 @@
         </div>
       </div>
     </div>
-    
+
+<script type="text/javascript">
+xajax_getIdiomList('<?php echo URL_VIEWS_IDIOM.'Inversiones.php?getContentsIdiom='; ?>');
+</script>
+
 <!-- FOOTER -->
 <?php include URL_TEMPLATES.'footer.php';?> 
-<?php include URL_TEMPLATES.'footer_includes.php' ; ?>
+<script type="text/javascript" src="<?= JS?>previewImageInversiones.js"></script>
 
-  <script type="text/javascript" src="<?= JS?>vendor.js"></script>
-  <script type="text/javascript" src="<?= JS?>app.js"></script>
 </html>

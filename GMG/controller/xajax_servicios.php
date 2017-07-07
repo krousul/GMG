@@ -26,7 +26,7 @@
 			$objResponse->alert("Por lo menos un campo debe tener datos!");
 			return $objResponse;
 		}
-
+		
 		$servicios = new servicios($id_servicio);	
 		$rSuccesfull = $servicios->saveServicio($nom_servicio, $contenido);
 		

@@ -1,38 +1,34 @@
 <?php
-	function proyectoCoincidencia($frmEditarTitulo){
-		$objResponse = new xajaxResponse();
+function getIdiomList($url) {
 	
-		$proyectos = new Proyectos();
-		$arrayProyecto = $proyectos->getProyecto();
-		
-		foreach ($arrayProyecto as $listProyecto){
-			if(strtoupper($listProyecto['nom_proyecto']) == strtoupper($frmEditarTitulo['nom_proyecto'])){
-				$objResponse->script("$('#titulo_reg').css(\"visibility\",\"visible\");");
-				return $objResponse;
-				break;
-			} 
-		}
-		$objResponse->script("$('#titulo_reg').css(\"visibility\",\"hidden\");");
-		return $objResponse;
-	}
-	function saveProyecto($frmSaveTitulo){
-		$objResponse = new xajaxResponse();
+	$objResponse = new xajaxResponse();
 	
-		$id_proyecto = $frmSaveTitulo['id_proyecto'];
-		$nom_proyecto = $frmSaveTitulo['nom_proyecto'];
-		
-		$proyectos = new Proyectos($id_proyecto);	
-		$rSuccesfull = $proyectos->saveProyecto($nom_proyecto);
-		
-		if(!$rSuccesfull){
-			$objResponse->alert("Error! no se guardo correctamente");
-		} else {
-			$objResponse->alert("Guardado con exito!");
-			$objResponse->redirect(URL_CONF_GEN."proyectos.php");
-		}
-		return $objResponse;
+	$idiomas = new Idiomas();
+	$arrayIdioma = $idiomas->getIdiomaActive();
+	
+	//Declarando eventos de los elementos
+	
+	
+	$idiomaHeader .= "<button type=\"button\" class=\"btn btn-success dropdown-toggle\" data-toggle=\"dropdown\" aria-expanded=\"false\">Idioma<span class=\"caret\"></span></button>";
+	$idiomaHeader .= "<ul class=\"dropdown-menu\" role=\"menu\">";
+	
+	foreach ($arrayIdioma As $idiom){
+		$valuePath = $url.$idiom['id_idiom'];
+		$idiomaBody.= "<li><a href=\"$valuePath\">".$idiom['idiom']."</a></li>";
 	}
-	//REGISTRO DE FUNCIONES XAJAX
-	$xajax->register(XAJAX_FUNCTION, "proyectoCoincidencia");
-	$xajax->register(XAJAX_FUNCTION, "saveProyecto");
+	
+	$idiomaFooter = "</ul>";
+	
+	$idiomas = $idiomaHeader.$idiomaBody.$idiomaFooter;
+	
+	$objResponse->assign("idiom", "innerHTML", $idiomas);
+	
+	return $objResponse;
+}
+
+
+//FUNCIONES XAJAX A REGISTRAR
+$xajax->register(XAJAX_FUNCTION, "getIdiomList");
+
+
 ?>

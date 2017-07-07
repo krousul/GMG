@@ -24,7 +24,7 @@
 		          <img class="profile-img" src="<?= IMAGES?>profile.png">
 		          <div class="app-title">
 		            <div class="title"><span class="highlight">Idioma</span></div>
-		            <div class="description">Frontend Developer</div>
+		            <div class="description">Elija los idiomas posibles para mostrar el contenido del sitio web. </div>
 		          </div>
 		        </div>
 		      </div>
@@ -46,33 +46,7 @@
 		        <div class="card-body no-padding tab-content">
 		          <div role="tabpanel" class="tab-pane active" id="tab1">
 		            <div class="row">
-		              <div class="col-md-12 col-sm-12">
-		                <div class="section">
-		                  <div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i> PROPIEDADES DE RECONTRUCCI&oacute;N</div>
-		                  <div class="section-body __indent">Proyectos residenciales, comerciales u oficina en plano, construcci&oacute;n o nuevas en Florida - USA</div>
-		                </div>
-		                <div class="section">
-		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i> PROPIEDADES EN RE-VENTA</div>
-		                  <div class="section-body __indent">Computer Engineering, Khon Kaen University</div>
-		                </div>
-		                <div class="section">
-		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i> ASESOR&iacute;A EN INMIGRACI&oacute;N A USA</div>
-		                  <div class="section-body __indent">Computer Engineering, Khon Kaen University</div>
-		                </div>
-		                <div class="section">
-		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i> FINANCIAMIENTO COMERCIAL / COMERCIAL</div>
-		                  <div class="section-body __indent">Computer Engineering, Khon Kaen University</div>
-		                </div>
-		                <div class="section">
-		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i> NEGOCIOS RENTABLES EN $</div>
-		                  <div class="section-body __indent">Computer Engineering, Khon Kaen University</div>
-		                </div>
-		              	<div class="section">
-		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i> INVERSIONES DE CAPITAL</div>
-		                  <div class="section-body __indent">Computer Engineering, Khon Kaen University</div>
-		                </div>
-		              </div>
-		              
+		              <div id="idiom" class="col-md-12 col-sm-12"></div>
 		            </div>
 		          </div>
 		        </div>
@@ -81,7 +55,13 @@
 		</div>
 	</div>
 </div>
-  <script type="text/javascript" src="<?= JS?>vendor.js"></script>
-  <script type="text/javascript" src="<?= JS?>app.js"></script>
+
+<script type="text/javascript">
+xajax_cargarIdioma('list');
+</script>	  
+
+<!-- Aqui va el footer de scripts y el pie de pagina -->
+<?php include URL_TEMPLATES.'footer.php';?> 
+
 </body>
 </html>

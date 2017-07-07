@@ -123,7 +123,7 @@
 				<tr>
 					<td colspan=9><span class="pull-right">
 					<?php
-					 echo paginate($reload, $page, $total_pages, $adjacents);
+//					  paginate($reload, $page, $total_pages, $adjacents);
 					?></span></td>
 				</tr>
 			  </table>
