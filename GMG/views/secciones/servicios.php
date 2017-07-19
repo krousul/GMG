@@ -21,7 +21,7 @@
 		    <div class="col-lg-12">
 		      <div class="card">
 		        <div class="card-body app-heading">
-		          <img class="profile-img" src="<?= IMAGES?>profile.png">
+		          <img class="profile-img" src="<?= IMAGES?>profile.png"> <!--cambiar imagen -->
 		          <div class="app-title">
 		            <div class="title"><span class="highlight">Servicios</span></div>
 		            <div class="description">Editar el Contenido de esta Secci&oacute;n</div>
@@ -121,8 +121,8 @@
 		          </div>
 		        </div>
 		        <div class="modal-footer">
-		        	<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
-		        	<button type="button" name="id_servicio" id="id_servicio" onclick="xajax_saveServicio(xajax.getFormValues('editarServicio'));" class="btn btn-sm btn-success">Save changes</button>
+		        	<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cerrar</button>
+		        	<button type="button" name="id_servicio" id="id_servicio" onclick="xajax_saveServicio(xajax.getFormValues('editarServicio'));" class="btn btn-sm btn-success">Guardar Cambios</button>
 		        </div>
           	</form>
 	     </div>

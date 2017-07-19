@@ -8,7 +8,7 @@
 	include URL_MODEL.'mod_equipo.php';
 	include URL_MODEL.'mod_idioma.php';
 	include URL_MODEL.'validarArchivos.php'; //archivo para guardar imagenes y textos en todos los modulos
-	$url = equipo;
+	$url = 'equipo';
 	include URL_APP.'xajax.php';
 	
 	//Ejecucion INICIAL
@@ -23,7 +23,7 @@
 	
 	if(!$_REQUEST && !$_FILES){
 		$SHOWFORMS= getComponents(MODULE_TEAM,ESPANOL,$GLOBALFORM);
-	} else if($_REQUEST['getContentsIdiom']){
+	} else if(!empty($_REQUEST['getContentsIdiom'])){
 		$SHOWFORMS = getComponents(MODULE_TEAM,$_REQUEST['getContentsIdiom'],$GLOBALFORM);
 	}
 	

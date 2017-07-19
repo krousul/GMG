@@ -160,6 +160,7 @@ class Documents extends Conexion{
 		
 		$PDO = new Conexion();
 		$PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$TEXT = array();
 		
 		try {
 		
@@ -211,6 +212,7 @@ class Documents extends Conexion{
 		
 		$PDO = new Conexion();
 		$PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$TEXT = array();
 		
 		try {
 			
@@ -236,6 +238,7 @@ class Documents extends Conexion{
 		
 		$PDO = new Conexion();
 		$PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$TEXT = array();
 		
 		try {
 			

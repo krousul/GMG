@@ -7,7 +7,7 @@
 	  <div class="toggle-content">
 	    <ul class="actions">
 	      <li><a href="<?= URL_VIEWS.'login.php?logout'?>">Salir</a></li>
-	      <li><a href="#" onclick="alert('Un momentico Por favor!');">Documetacion</a></li>
+	      <li><a href="#" onclick="alert('No se encuentra disponible por ahora!');">Documetacion</a></li>
 	      <li><a href="#">About</a></li>
 	    </ul>
 	  </div>

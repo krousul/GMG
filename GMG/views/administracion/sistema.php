@@ -14,7 +14,7 @@
 		        <div class="card-body app-heading">
 		          <img class="profile-img" src="<?= IMAGES?>profile.png">
 		          <div class="app-title">
-		            <div class="title"><span class="highlight">Sistema</span></div>
+		            <div class="title"><span class="highlight">Usuarios</span></div>
 		            <div class="description">Administrar usuarios</div>
 		          </div>
 		        </div>
@@ -23,7 +23,13 @@
 		  </div>
 		  
 		<?php include URL_TEMPLATES."btn_floating.php";?>
-		
+		<div class="row">
+		    <div class="col-lg-12">
+		      <div class="card">
+				<div id="resultadosMsg"></div>
+		      </div>
+	      </div>
+      </div>
 		<div class="row">
 			<div class="col-xs-12">
 		    	<div class="card">
@@ -47,7 +53,7 @@
 										<input type="text" class="form-control" id="q" placeholder="Nombre" onkeyup='load(1);'>
 									</div>
 									<div class="col-md-3">
-										<button type="button" class="btn btn-default" onclick='load(1);'>
+										<button type="button" id="btnBuscar" class="btn btn-default" onclick='load(1);'>
 											<span class="fa fa-search"></span> Buscar</button>
 										<span id="loader"></span>
 									</div>

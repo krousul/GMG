@@ -1,5 +1,5 @@
 <?php 
-	include '..//app/config.php';
+	include '..//..//app/config.php';
 	include URL_CONTROLLER . 'con_principal.php';
 	include URL_TEMPLATES . 'head.php';
 ?>

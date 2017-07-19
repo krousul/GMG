@@ -1222,8 +1222,8 @@ h2,
 .h2,
 h3,
 .h3 {
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-top: 8px; /* posicion del Mensaje de bienvenida*/
+  margin-bottom: 20px;
 }
 h1 small,
 .h1 small,
@@ -1297,7 +1297,7 @@ p {
 }
 @media (min-width: 768px) {
   .lead {
-    font-size: 21px;
+    font-size: 10px;
   }
 }
 small,

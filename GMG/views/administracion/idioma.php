@@ -7,15 +7,6 @@
   <div class="app app-default app-inbox">
 	<?php include URL_TEMPLATES . 'aside.php'; ?>
 	
-	<script type="text/ng-template" id="sidebar-dropdown.tpl.html">
-    	<div class="dropdown-background">
-         <div class="bg"></div>
-        </div>
-  		<div class="dropdown-container">
-    		{{list}}
-  		</div>
-	</script>
-	
 	<div class="app-container">
 		<div class="row">
 		    <div class="col-lg-12">
@@ -57,7 +48,7 @@
 </div>
 
 <script type="text/javascript">
-xajax_cargarIdioma('list');
+xajax_cargarIdioma();
 </script>	  
 
 <!-- Aqui va el footer de scripts y el pie de pagina -->

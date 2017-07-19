@@ -1,7 +1,7 @@
 <?php
 	include URL_APP.'conex.php';
 	include URL_MODEL.'mod_servicios.php';
-	$url = servicios;
+	$url = 'servicios';
 	include URL_APP.'xajax.php';
 	
 	$column1 = '';
@@ -12,7 +12,7 @@
 	
 	$servicios = new servicios();
 	$arrayServicios = $servicios->getServicios();
-// 	echo "<pre>"; print_r($arrayServicios);exit;
+
 	foreach ($arrayServicios As $services){
 		$onCLick = "onClick=\"$('#nom_servicio').text('{$services['nom_servicio']}');$('#id_servicio').val('{$services['id_servicios']}');\";";
 		

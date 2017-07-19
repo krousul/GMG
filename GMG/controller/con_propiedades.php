@@ -9,7 +9,7 @@
 	include URL_MODEL.'mod_propiedades.php';
 	include URL_MODEL.'mod_idioma.php';
 	include URL_MODEL.'validarArchivos.php'; //archivo para guardar imagenes y textos en todos los modulos
-	$url = propiedades;
+	$url = 'propiedades';
 	include URL_APP.'xajax.php';
 
 //Ejecucion INICIAL
@@ -24,8 +24,17 @@ if($_REQUEST || $_FILES){ //sin aceptar parametros xajax
 
 if(!$_REQUEST && !$_FILES){
 	$SHOWFORMS= getComponents(MODULE_PROP,ESPANOL,$GLOBALFORM);
-} else if($_REQUEST['getContentsIdiom']){
+} else if(!empty($_REQUEST['getContentsIdiom'])){
 	$SHOWFORMS = getComponents(MODULE_PROP,$_REQUEST['getContentsIdiom'],$GLOBALFORM);
 }
 
+if(!empty($SHOWFORMS)){
+	$img = array();
+	$des = array();
+	
+	foreach ($SHOWFORMS as $key => $show){
+		$img[$key] = (!empty($show['urlImage'])) ? $show['urlImage'][0] : '';
+		$des[$key] = (!empty($show['descriptionText'])) ? $show['descriptionText'][0] : '';
+	}
+}
 ?>

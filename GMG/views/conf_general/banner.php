@@ -35,7 +35,7 @@
 		<div class="row">
 		    <div class="col-lg-12">
 		      <div class="card">
-		        <?= $showViews["MSJ"];?>
+		        <?php if(!empty($showViews)) echo $showViews["MSJ"]; ?>
 		      </div>
 		    </div>
 		  </div>
@@ -48,7 +48,7 @@
 		        <div class="card-header">
 		          <ul class="nav nav-tabs">
 		            <li role="tab1" class="active">
-		              <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Imagen 1</a>
+		              <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Imagen </a>
 		            </li>
 		            <li role="tab2">
 		              <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Imagen 2</a>
@@ -78,9 +78,9 @@
 					                  <div><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;EDITAR</div>
 							      </button>
 							    </div>
-								<img src="<?= $SHOWFORMS[$IDFORMS[MODULE_BANNER][0]]['urlImage'][0]; ?>" class="img-responsive">
+								<img src="<?php if(!empty($img['Banner1'])) echo $img['Banner1']; ?>" class="img-responsive">
 								<div class="caption">
-									<h3 class="title"><?= $SHOWFORMS[$IDFORMS[MODULE_BANNER][0]]['descriptionText'][0]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+									<h3 class="title"><?php if(!empty($des['Banner1'])) echo $des['Banner1']; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
 								</div>
 			                  </div>
 			                </div>
@@ -99,9 +99,9 @@
 					                  <div><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;EDITAR</div>
 							      </button>
 							    </div>
-								<img src="<?= $SHOWFORMS[$IDFORMS[MODULE_BANNER][1]]['urlImage'][0]; ?>" class="img-responsive" >
+								<img src="<?php if(!empty($img['Banner2'])) echo $img['Banner2']; ?>" class="img-responsive" >
 								<div class="caption">
-									<h3 class="title"><?= $SHOWFORMS[$IDFORMS[MODULE_BANNER][1]]['descriptionText'][0]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+									<h3 class="title"><?php if(!empty($des['Banner2'])) echo $des['Banner2']; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
 								</div>
 			                  </div>
 			                </div>
@@ -120,9 +120,9 @@
 					                  <div><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;EDITAR</div>
 							      </button>
 							    </div>
-								<img src="<?= $SHOWFORMS[$IDFORMS[MODULE_BANNER][2]]['urlImage'][0]; ?>" class="img-responsive">
+								<img src="<?php if(!empty($img['Banner3'])) echo $img['Banner3']; ?>" class="img-responsive">
 								<div class="caption">
-									<h3 class="title"><?= $SHOWFORMS[$IDFORMS[MODULE_BANNER][2]]['descriptionText'][0]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+									<h3 class="title"><?php if(!empty($des['Banner3'])) echo $des['Banner3']; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
 								</div>
 			                  </div>
 			                </div>
@@ -141,9 +141,9 @@
 					                  <div><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;EDITAR</div>
 							      </button>
 							    </div>
-								<img src="<?= $SHOWFORMS[$IDFORMS[MODULE_BANNER][3]]['urlImage'][0]; ?>" class="img-responsive">
+								<img src="<?php if(!empty($img['Banner4'])) echo $img['Banner4']; ?>" class="img-responsive">
 								<div class="caption">
-									<h3 class="title"><?= $SHOWFORMS[$IDFORMS[MODULE_BANNER][3]]['descriptionText'][0]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+									<h3 class="title"><?php if(!empty($des['Banner4'])) echo $des['Banner4']; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
 								</div>
 			                  </div>
 			                </div>
@@ -162,9 +162,9 @@
 					                  <div><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;EDITAR</div>
 							      </button>
 							    </div>
-								<img src="<?= $SHOWFORMS[$IDFORMS[MODULE_BANNER][4]]['urlImage'][0]; ?>" class="img-responsive">
+								<img src="<?php if(!empty($img['Banner5'])) echo $img['Banner5']; ?>" class="img-responsive">
 								<div class="caption">
-									<h3 class="title"><?= $SHOWFORMS[$IDFORMS[MODULE_BANNER][4]]['descriptionText'][0]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+									<h3 class="title"><?php if(!empty($des['Banner5'])) echo $des['Banner5']; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
 								</div>
 			                  </div>
 			                </div>

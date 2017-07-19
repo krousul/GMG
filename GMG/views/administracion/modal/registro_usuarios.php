@@ -47,7 +47,7 @@
 					</div>
 				  </div>
 				  <div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-default" id="closeModal" data-dismiss="modal">Cerrar</button>
 					<button type="button" class="btn btn-primary" onClick="xajax_saveUsuario(xajax.getFormValues('guardar_usuario'))" id="guardar_datos">Guardar datos</button>
 				  </div>
 			  </form>

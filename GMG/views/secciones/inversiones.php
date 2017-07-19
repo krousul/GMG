@@ -37,7 +37,7 @@
 		<div class="row">
 		    <div class="col-lg-12">
 		      <div class="card">
-		        <?= $showViews["MSJ"];?>
+		        <?php if(!empty($showViews)) echo $showViews["MSJ"];?>
 		      </div>
 		    </div>
 		  </div>
@@ -65,9 +65,9 @@
 		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i> SECCION 1</div>
 		                  <div class="section-body">
 			                 <div class="thumbnail">
-								<img src="<?= $SHOWFORMS[$IDFORMS[MODULE_INV][0]]['urlImage'][0]; ?>" class="img-responsive"  height="300px" width="300px">
+								<img src="<?php if(!empty($img['Inversiones1'])) echo $img['Inversiones1']; ?>" class="img-responsive"  height="300px" width="300px">
 								<div class="caption">
-									<h3 class="title"><?= $SHOWFORMS[$IDFORMS[MODULE_INV][0]]['descriptionText'][0]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+									<h3 class="title"><?php if(!empty($des['Inversiones1'])) echo $des['Inversiones1']; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
 								</div>
 							    <div align="center">
 							      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#<?= $IDFORMS[MODULE_INV][0]; ?>">
@@ -83,9 +83,9 @@
 		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i>SECCION 2</div>
 		                  <div class="section-body">
 			                 <div class="thumbnail">
-								<img src="<?= $SHOWFORMS[$IDFORMS[MODULE_INV][1]]['urlImage'][0]; ?>" class="img-responsive" height="300px" width="300px">
+								<img src="<?php if(!empty($img['Inversiones2'])) echo $img['Inversiones2']; ?>" class="img-responsive" height="300px" width="300px">
 								<div class="caption">
-									<h3 class="title"><?= $SHOWFORMS[$IDFORMS[MODULE_INV][1]]['descriptionText'][0]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+									<h3 class="title"><?php if(!empty($des['Inversiones2'])) echo $des['Inversiones2']; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
 								</div>
 							    <div align="center">
 							      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#<?= $IDFORMS[MODULE_INV][1]; ?>">
@@ -101,9 +101,9 @@
 		                  <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i>SECCION 3</div>
 		                  <div class="section-body">
 			                 <div class="thumbnail">
-								<img src="<?= $SHOWFORMS[$IDFORMS[MODULE_INV][2]]['urlImage'][0]; ?>" class="img-responsive" height="300px" width="300px">
+								<img src="<?php if(!empty($img['Inversiones3'])) echo $img['Inversiones3']; ?>" class="img-responsive" height="300px" width="300px">
 								<div class="caption">
-									<h3 class="title"><?= $SHOWFORMS[$IDFORMS[MODULE_INV][2]]['descriptionText'][0]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+									<h3 class="title"><?php if(!empty($des['Inversiones3'])) echo $des['Inversiones3']; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
 								</div>
 							    <div align="center">
 							      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#<?= $IDFORMS[MODULE_INV][2]; ?>">

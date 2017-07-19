@@ -1,4 +1,3 @@
-
 <?php
 include '..//..//app/config.php';
 include URL_CONTROLLER . 'con_equipo.php';
@@ -27,7 +26,7 @@ include URL_TEMPLATES . 'head.php';
 		        <div class="card-body app-heading">
 		          <img class="profile-img" src="<?= IMAGES?>profile.png">
 		          <div class="app-title">
-		            <div class="title"><span class="highlight">Servicios</span></div>
+		            <div class="title"><span class="highlight">Equipo</span></div>
 		            <div class="description">Frontend Developer</div>
 		          </div>
 		        </div>
@@ -37,7 +36,7 @@ include URL_TEMPLATES . 'head.php';
 		<div class="row">
 		    <div class="col-lg-12">
 		      <div class="card">
-		        <?= $showViews["MSJ"];?>
+		        <?php if(!empty($showViews)) $showViews["MSJ"];?>
 		      </div>
 		    </div>
 		  </div>
@@ -55,7 +54,6 @@ include URL_TEMPLATES . 'head.php';
 		          </ul>
 		          <div id="idiom" class="btn-group"></div>
 		        </div>
-		        
 		        <div class="card-body no-padding tab-content">
 		          <div role="tabpanel" class="tab-pane active" id="tab1">
                   <div class="card-body">
@@ -71,10 +69,10 @@ include URL_TEMPLATES . 'head.php';
                   	<div class="row">
                   		<div class="col-lg-12">
                   			<div class="caption">
-								<h3 align="center" class="title"><?= $SHOWFORMS[$IDFORMS[MODULE_TEAM][0]]['descriptionText'][0]; ?></h3>
+								<h3 align="center" class="title"><?php if(!empty($SHOWFORMS)) echo $SHOWFORMS[$IDFORMS[MODULE_TEAM][0]]['descriptionText'][0]; ?></h3>
 							</div>
                   			<div class="caption">
-								<h5 align="center" class="title"><?= $SHOWFORMS[$IDFORMS[MODULE_TEAM][0]]['descriptionText'][1]; ?></h5>
+								<h5 align="center" class="title"><?php if(!empty($SHOWFORMS)) echo $SHOWFORMS[$IDFORMS[MODULE_TEAM][0]]['descriptionText'][1]; ?></h5>
 							</div>
                   		</div>
                   	</div>
@@ -84,12 +82,12 @@ include URL_TEMPLATES . 'head.php';
 		                <div class="section">
 		                  <div class="section-body">
 			                 <div class="thumbnail">
-								<img src="<?= $SHOWFORMS[$IDFORMS[MODULE_TEAM][1]]['urlImage'][0]; ?>" class="img-responsive"  height="300px" width="300px">
+								<img src="<?php if(!empty($SHOWFORMS)) echo  $SHOWFORMS[$IDFORMS[MODULE_TEAM][1]]['urlImage'][0]; ?>" class="img-responsive"  height="300px" width="300px">
 								<div class="caption">
-									<h3 class="title"><?= $SHOWFORMS[$IDFORMS[MODULE_TEAM][1]]['descriptionText'][0]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+									<h3 class="title"><?php if(!empty($SHOWFORMS)) echo $SHOWFORMS[$IDFORMS[MODULE_TEAM][1]]['descriptionText'][0]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
 								</div>
 								<div class="caption">
-									<h5 class="title"><?= $SHOWFORMS[$IDFORMS[MODULE_TEAM][1]]['descriptionText'][1]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h5>
+									<h5 class="title"><?php if(!empty($SHOWFORMS)) echo $SHOWFORMS[$IDFORMS[MODULE_TEAM][1]]['descriptionText'][1]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h5>
 								</div>
 							    <div align="center">
 							      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#<?= $IDFORMS[MODULE_TEAM][1]; ?>">
@@ -104,12 +102,12 @@ include URL_TEMPLATES . 'head.php';
 		                <div class="section">
 		                  <div class="section-body">
 			                 <div class="thumbnail">
-								<img src="<?= $SHOWFORMS[$IDFORMS[MODULE_TEAM][2]]['urlImage'][0]; ?>" class="img-responsive" height="300px" width="300px">
+								<img src="<?php if(!empty($SHOWFORMS)) echo $SHOWFORMS[$IDFORMS[MODULE_TEAM][2]]['urlImage'][0]; ?>" class="img-responsive" height="300px" width="300px">
 								<div class="caption">
-									<h3 class="title"><?= $SHOWFORMS[$IDFORMS[MODULE_TEAM][2]]['descriptionText'][0]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+									<h3 class="title"><?php if(!empty($SHOWFORMS)) echo $SHOWFORMS[$IDFORMS[MODULE_TEAM][2]]['descriptionText'][0]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
 								</div>
 								<div class="caption">
-									<h5 class="title"><?= $SHOWFORMS[$IDFORMS[MODULE_TEAM][2]]['descriptionText'][1]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h5>
+									<h5 class="title"><?php if(!empty($SHOWFORMS)) echo $SHOWFORMS[$IDFORMS[MODULE_TEAM][2]]['descriptionText'][1]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h5>
 								</div>
 							    <div align="center">
 							      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#<?= $IDFORMS[MODULE_TEAM][2]; ?>">
@@ -124,12 +122,12 @@ include URL_TEMPLATES . 'head.php';
 		                <div class="section">
 		                  <div class="section-body">
 			                 <div class="thumbnail">
-								<img src="<?= $SHOWFORMS[$IDFORMS[MODULE_TEAM][3]]['urlImage'][0]; ?>" class="img-responsive" height="300px" width="300px">
+								<img src="<?php if(!empty($SHOWFORMS)) echo $SHOWFORMS[$IDFORMS[MODULE_TEAM][3]]['urlImage'][0]; ?>" class="img-responsive" height="300px" width="300px">
 								<div class="caption">
-									<h3 class="title"><?= $SHOWFORMS[$IDFORMS[MODULE_TEAM][3]]['descriptionText'][0]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+									<h3 class="title"><?php if(!empty($SHOWFORMS)) echo $SHOWFORMS[$IDFORMS[MODULE_TEAM][3]]['descriptionText'][0]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
 								</div>
 								<div class="caption">
-									<h5 class="title"><?= $SHOWFORMS[$IDFORMS[MODULE_TEAM][3]]['descriptionText'][1]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h5>
+									<h5 class="title"><?php if(!empty($SHOWFORMS)) echo $SHOWFORMS[$IDFORMS[MODULE_TEAM][3]]['descriptionText'][1]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h5>
 								</div>
 							    <div align="center">
 							      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#<?= $IDFORMS[MODULE_TEAM][3]; ?>">
@@ -241,7 +239,7 @@ include URL_TEMPLATES . 'head.php';
 		         	<div class="row">
 						<div class="form-group">
 							<div class="col-sm-5">
-								Titulo: <input id="<?= $IDFORMS[MODULE_TEAM][1]; ?>text2" name="<?= $IDFORMS[MODULE_TEAM][1]; ?>text2" class="form-control" placeholder="Input" type="text">
+								Subtitulo: <input id="<?= $IDFORMS[MODULE_TEAM][1]; ?>text2" name="<?= $IDFORMS[MODULE_TEAM][1]; ?>text2" class="form-control" placeholder="Input" type="text">
 							</div>
 						</div>
 					</div>
@@ -298,7 +296,7 @@ include URL_TEMPLATES . 'head.php';
 		         	<div class="row">
 						<div class="form-group">
 							<div class="col-sm-5">
-								Titulo: <input id="<?= $IDFORMS[MODULE_TEAM][2]; ?>text2" name="<?= $IDFORMS[MODULE_TEAM][2]; ?>text2" class="form-control" placeholder="Input" type="text">
+								Subtitulo: <input id="<?= $IDFORMS[MODULE_TEAM][2]; ?>text2" name="<?= $IDFORMS[MODULE_TEAM][2]; ?>text2" class="form-control" placeholder="Input" type="text">
 							</div>
 						</div>
 					</div>
@@ -355,7 +353,7 @@ include URL_TEMPLATES . 'head.php';
 		         	<div class="row">
 						<div class="form-group">
 							<div class="col-sm-5">
-								Titulo: <input id="<?= $IDFORMS[MODULE_TEAM][3]; ?>text2" name="<?= $IDFORMS[MODULE_TEAM][3]; ?>text2" class="form-control" placeholder="Input" type="text">
+								Subtitulo: <input id="<?= $IDFORMS[MODULE_TEAM][3]; ?>text2" name="<?= $IDFORMS[MODULE_TEAM][3]; ?>text2" class="form-control" placeholder="Input" type="text">
 							</div>
 						</div>
 					</div>

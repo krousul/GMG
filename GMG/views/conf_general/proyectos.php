@@ -137,8 +137,8 @@
 		          </div>
 		        </div>
 		        <div class="modal-footer">
-		        	<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
-		        	<button type="button" name="id_proyecto" id="id_proyecto" onclick="xajax_saveProyecto(xajax.getFormValues('editarProyecto'));" class="btn btn-sm btn-success">Save changes</button>
+		        	<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cerrar</button>
+		        	<button type="button" name="id_proyecto" id="id_proyecto" onclick="xajax_saveProyecto(xajax.getFormValues('editarProyecto'));" class="btn btn-sm btn-success">Guardar Cambios</button>
 		        </div>
           	</form>
 	     </div>

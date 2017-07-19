@@ -1,6 +1,6 @@
 <aside class="app-sidebar" id="sidebar">
   <div class="sidebar-header">
-    <a class="sidebar-brand" href="#"><span class="highlight">GMG</span> CPanel</a>
+    <a class="sidebar-brand" href="<?= URL_VIEWS."principal.php"?>"><span class="highlight">GMG</span> CPanel</a>
     <button type="button" class="sidebar-toggle">
       <i class="fa fa-times"></i>
     </button>
@@ -8,7 +8,7 @@
   <div class="sidebar-menu">
     <ul class="sidebar-nav">
     
-      <li class="dropdown <?php echo $secciones = ($secciones == 'active') ? active : '';?>">
+      <li class="dropdown <?php echo $secciones = ($secciones == 'active') ? 'active' : '';?>">
         <a href="#">
           <div class="icon">
             <i class="fa fa-tasks" aria-hidden="true"></i>
@@ -27,27 +27,10 @@
         </div>
       </li>
       
-       <li class="dropdown <?php echo $redes = ($redes == 'active') ? active : '';?>">
+     <li class="dropdown <?php echo $gereral = ($gereral == 'active') ? 'active' : '';?>">
         <a href="#">
           <div class="icon">
-            <i class="fa fa-tasks" aria-hidden="true"></i>
-          </div>
-          <div class="title">Redes Sociales</div>
-        </a>
-        <div class="dropdown-menu">
-          <ul>
-            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Redes Sociales</li>
-            <li><a href="<?= URL_REDES?>instagram.php"> Instagram</a></li>
-            <li><a href="<?= URL_REDES?>twitter.php"> Twitter</a></li>
-            <li class="line"></li>
-          </ul>
-        </div>
-      </li>
-      
-     <li class="dropdown <?php echo $gereral = ($gereral == 'active') ? active : '';?>">
-        <a href="#">
-          <div class="icon">
-            <i class="fa fa-tasks" aria-hidden="true"></i>
+            <i class="fa fa-cube" aria-hidden="true"></i>
           </div>
           <div class="title">Configuraci&oacute;n Generales</div>
         </a>
@@ -60,10 +43,10 @@
         </div>
       </li>
       
-     <li class="dropdown <?php echo $admin = ($admin == 'active') ? active : '';?>">
+     <li class="dropdown <?php echo $admin = ($admin == 'active') ? 'active' : '';?>">
         <a href="#">
           <div class="icon">
-            <i class="fa fa-tasks" aria-hidden="true"></i>
+            <i class="fa fa-file-o" aria-hidden="true"></i>
           </div>
           <div class="title">Administraci&oacute;n</div>
         </a>
@@ -71,8 +54,7 @@
           <ul>
             <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Administraci&oacute;n</li>
             <li><a href="<?= URL_ADMIN?>idioma.php"> Idioma</a></li>
-            <li><a href="<?= URL_ADMIN?>Cpanel.php"> Control Panel</a></li>
-            <li><a href="<?= URL_ADMIN?>sistema.php"> Sistema</a></li>
+            <li><a href="<?= URL_ADMIN?>sistema.php"> Usuarios</a></li>
             <li class="line"></li>
           </ul>
         </div>

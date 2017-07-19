@@ -125,9 +125,11 @@
 				        	<strong>¡Bien hecho!</strong>
 				        	{$list}
 		        	</div>";
-        	$objResponse->assign("resultados", 'innerHTML', $html);
+        	$objResponse->assign("resultadosMsg", 'innerHTML', $html);
+        	$objResponse->script("$('#closeModal').click();");
+        	$objResponse->script("$('#guardar_usuario')[0].reset();");
+        	$objResponse->script("$('#btnBuscar').click();");
         }
-        
 		return $objResponse;
 	}
 	function inicioLoad(){

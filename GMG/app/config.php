@@ -1,4 +1,5 @@
 <?php
+// error_reporting(E_ERROR | E_PARSE | E_NOTICE);
 define('DS', DIRECTORY_SEPARATOR);
 define('ROOT', substr(realpath(dirname(__FILE__)) . DS, 0, -4));
 
@@ -12,7 +13,7 @@ define('URL_MODAL', ROOT . 'views'. DS . 'administracion' . DS . 'modal' . DS);
 define('URL_AJAX', ROOT . 'views'. DS . 'administracion' . DS . 'ajax' . DS);
 
 
-define('BASE_URL', 'http://localhost:8080/GMG/');
+define('BASE_URL', 'http://localhost/cpanel/');
 define('URL_SECCIONES', BASE_URL . 'views/secciones/');
 define('URL_REDES', BASE_URL . 'views/redes_sociales/');
 define('URL_CONF_GEN', BASE_URL . 'views/conf_general/');

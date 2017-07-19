@@ -8,6 +8,7 @@ function countResponse($REQUEST,$FILES,$moduloSeccion){
 	
 	$REQUEST = 	$splitArray["request"];
 	$moduloSeccion = $splitArray["module"];
+	$stringresponse = '';
 	
 	foreach ($REQUEST as $key => $valoresRESQUEST){
 		for($i = 0; $i <= strlen($valoresRESQUEST)-1; $i++){
@@ -39,7 +40,9 @@ function verifyFiles($FILES,$cabeceras,$modulo,$PARAMETERSVALIDATION){
 	$LIMITEUPLOAD = $PARAMETERSVALIDATION[5];
 	$ALLIDIOM = 	$PARAMETERSVALIDATION[6];
     $URL_DIR=       $PARAMETERSVALIDATION[7];
-	
+    $htmlMSJ = '';
+  	$allText = '';
+    $idioma = '';
 	//Detecta
 	
 	$seccion = $cabeceras[0][1];
@@ -143,35 +146,34 @@ function verifyFiles($FILES,$cabeceras,$modulo,$PARAMETERSVALIDATION){
 		}	
 	}
 	
-	
-	
-	switch ($modoMsj){
-		case "success" :
-			$htmlMSJ = "<div class=\"col-md-6 col-sm-12 close-messages\">
-							<div class=\"alert alert-success\" role=\"alert\">
-								<strong>$MSJ_EXITOSO</strong>
-					            <button type=\"button\" class=\"close\" ><span aria-hidden=\"true\">&times;</span></button>
-							</div>
-						</div>";
-		break;
-		case "danger":
-			$htmlMSJ = "<div class=\"col-md-6 col-sm-12 close-messages\">
-							<div class=\"alert alert-danger  alert-dismissible\" role=\"alert\">
-								<strong>$MSJ</strong>
-					            <button type=\"button\" class=\"close\" ><span aria-hidden=\"true\">&times;</span></button>
-							</div>
-						</div>";
-		break;
-		case "warning":
-			$htmlMSJ = "<div class=\"col-md-6 col-sm-12 close-messages\">
-							<div class=\"alert alert-warning alert-dismissible\" role=\"alert\">
-								<strong>$MSJ</strong>
-					            <button type=\"button\" class=\"close\" ><span aria-hidden=\"true\">&times;</span></button>
-							</div>
-						</div>";
-		break;
+	if(!empty($modoMsj)){
+		switch ($modoMsj){
+			case "success" :
+				$htmlMSJ = "<div class=\"col-md-6 col-sm-12 close-messages\">
+								<div class=\"alert alert-success\" role=\"alert\">
+									<strong>$MSJ_EXITOSO</strong>
+						            <button type=\"button\" class=\"close\" ><span aria-hidden=\"true\">&times;</span></button>
+								</div>
+							</div>";
+			break;
+			case "danger":
+				$htmlMSJ = "<div class=\"col-md-6 col-sm-12 close-messages\">
+								<div class=\"alert alert-danger  alert-dismissible\" role=\"alert\">
+									<strong>$MSJ</strong>
+						            <button type=\"button\" class=\"close\" ><span aria-hidden=\"true\">&times;</span></button>
+								</div>
+							</div>";
+			break;
+			case "warning":
+				$htmlMSJ = "<div class=\"col-md-6 col-sm-12 close-messages\">
+								<div class=\"alert alert-warning alert-dismissible\" role=\"alert\">
+									<strong>$MSJ</strong>
+						            <button type=\"button\" class=\"close\" ><span aria-hidden=\"true\">&times;</span></button>
+								</div>
+							</div>";
+			break;
+		}
 	}
-	
 	//Armando Array de resultados
 	
 	$RESULT = array("MSJ" => $htmlMSJ,
@@ -228,21 +230,28 @@ function getComponents($module,$idiom,$GLOBALFORM){
 	$documents = new Documents($module,$idiom);
 	$arrayValues = $documents->getDocuments();
 	
+	$texts = null;
 	$texts = $arrayValues['text'];
 	$files = $arrayValues['file'];
-	
+	$SHOW = array();
+	$i = 0;
+
 	if($texts != null){
 		for($i = 0; $i <= count($texts);$i++){
-			foreach($texts[$i] as $keytext => $valuetext){
-				if($keytext == "id_seccion"){
-					$secciontext[] = $valuetext;
+			if(isset($texts[$i])){
+				foreach($texts[$i] AS $keytext => $valuetext){
+					if($keytext == "id_seccion"){
+						$secciontext[] = $valuetext;
+					}
 				}
 			}
 		}
 		for($i = 0; $i <= count($texts);$i++){
-			foreach($texts[$i] as $keytext => $valuetext){
-				if($keytext == "description"){
-					$SHOW[$secciontext[$i]]['descriptionText'][] = $valuetext;
+			if(isset($texts[$i])){
+				foreach($texts[$i] as $keytext => $valuetext){
+					if($keytext == "description"){
+						$SHOW[$secciontext[$i]]['descriptionText'][] = $valuetext;
+					}
 				}
 			}
 		}
@@ -250,16 +259,20 @@ function getComponents($module,$idiom,$GLOBALFORM){
 	
 	if($files != null){
 		for($i = 0; $i <= count($files);$i++){
-			foreach($files[$i] as $keyfiles => $valuefiles){
-				if($keyfiles== "id_seccion"){
-					$seccionFile[] = $valuefiles;
+			if(isset($files[$i])){
+				foreach($files[$i] as $keyfiles => $valuefiles){
+					if($keyfiles== "id_seccion"){
+						$seccionFile[] = $valuefiles;
+					}
 				}
 			}
 		}
 		for($i = 0; $i <= count($files);$i++){
-			foreach($files[$i] as $keyfiles => $valuefiles){
-				if($keyfiles == "url"){
-					$SHOW[$seccionFile[$i]]['urlImage'][] = $valuefiles;
+			if(isset($files[$i])){
+				foreach($files[$i] as $keyfiles => $valuefiles){
+					if($keyfiles == "url"){
+						$SHOW[$seccionFile[$i]]['urlImage'][] = $valuefiles;
+					}
 				}
 			}
 		}

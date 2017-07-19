@@ -1,13 +1,10 @@
 <?php
-	
-	
 function cargarIdioma(){
 	
 	$objResponse = new xajaxResponse();
 	
 	$idiomas = new Idiomas();
 	$arrayIdioma = $idiomas->getIdioma();
-	
 	
 	//Contenido del elemento 
 	$idiomaHeader .= "<table class=\"table\">";

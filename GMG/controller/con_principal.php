@@ -1,5 +1,5 @@
 <?php
 	include URL_APP.'conex.php';
-	$url = principal;
+	$url = 'principal';
 	include URL_APP.'xajax.php';
 ?>
