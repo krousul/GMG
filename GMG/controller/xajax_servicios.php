@@ -38,7 +38,17 @@
 		}
 		return $objResponse;
 	}
+	function consultarServ($nom_serv, $cont){
+		$objResponse = new xajaxResponse();
+
+		$html = "<input type='text' class='form-control' name='nom_servicio' id='nom_servicio' value='$nom_serv' placeholder='Ingrese Titulo'>
+			     <textarea  class='form-control' name='contenido' id='contenido' rows='3' placeholder='Ingrese Contenido'>$cont</textarea>";
+		$objResponse->assign("resultServ", "innerHTML", $html);
+		
+		return $objResponse;
+	}
 	//REGISTRO DE FUNCIONES XAJAX
+	$xajax->register(XAJAX_FUNCTION, "consultarServ");
 	$xajax->register(XAJAX_FUNCTION, "servicioCoincidencia");
 	$xajax->register(XAJAX_FUNCTION, "saveServicio");
 ?>

@@ -106,18 +106,11 @@
 	          </div>
 	          <div class="modal-body">
 		          <div class="container">
-		            		<div class="col-md-4">
-						    	<div class="form-group has-success">
-						    		<strong id="titulo_reg" style="visibility:hidden;" class="alert alert-success col-md-12" role="alert">
-								    	Titulo Registrado!
-									</strong>
-						      		<input type="text" class="form-control" name="nom_servicio" id="inputSuccess1" onkeyUp="xajax_servicioCoincidencia(xajax.getFormValues('editarServicio'));" placeholder="Ingrese Titulo">
-						      		<textarea name="contenido" rows="3" class="form-control" placeholder="Ingrese Contenido"></textarea>
-						    	</div>
-		<!-- 				    <div class="form-group has-error"> -->
-		<!-- 				      <input type="text" class="form-control" id="inputError1" placeholder="Danger"> -->
-		<!-- 				    </div> -->
-					   		</div>
+            		<div class="col-md-4">
+				    	<div class="form-group has-success">
+				      		<div id="resultServ"></div>
+				    	</div>
+			   		</div>
 		          </div>
 		        </div>
 		        <div class="modal-footer">

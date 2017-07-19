@@ -10,7 +10,7 @@
 <html>
 <head>
 	<?php $xajax->printJavascript('../../controller/xajax/');?>
-  	<title> GMG | cambiar </title>
+  	<title> GMG | <?php echo ucwords($url); ?> </title>
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
