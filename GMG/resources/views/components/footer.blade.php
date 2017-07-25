@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <!-- col #1 -->
-            <div class="logo_footer dark col-md-3">
+            <div class="logo_footer dark col-md-3" Style="height:320px">
                 <img  src="img/logo-tr.png" alt="" class="footer-logo">
                 <p class="block" style="color: #fff">
                     <small> 
@@ -23,40 +23,12 @@
                 </p><!-- /social -->
             </div>
             <!-- col #2 -->
-            <div class="col-md-5" Style="overflow-y:scroll; height:280px">
 
-                <h4>{!! trans('content.footer3') !!}</h4>    
-                 <table class="table">
-                        <tbody>
-                            @if(!empty($data))
-                                @foreach($data as $key => $value)
-                                    <tr>
-                                        <td style="text-align: center; border-top: 0px !important;">
-                                            @if(!empty($value['extended_entities']['media']))
-                                                @foreach($value['extended_entities']['media'] as $v)
-                                                    <img src="{{ $v['media_url_https'] }}" style="width:100px;">
-                                                    <a href="{{ $v['url'] }}" target="_BLANK" style="color:white !important">
-                                                        <p>
-                                                            {{ $value['text'] }}
-                                                        </p>
-                                                    </a>
-                                                    <small class="ago">
-                                                        {{ $value['created_at'] }}
-                                                    </small>
+            <div class="col-md-6"  Style="overflow-y:scroll; height:320px">
 
-                                                @endforeach
-                                            @endif
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            @else
-                                <tr>
-                                    <td colspan="6">There are no data.</td>
-                                </tr>
-                            @endif
-                        </tbody>
-                    </table>
-
+                <div>
+                    <a class="twitter-timeline" href="https://twitter.com/globalmoneyg">Global Money Group - Curated tweets by GMG</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
             </div>
             <!-- /col #3 -->
             <div class="col-md-4 col-sm-4 hidden-xs">

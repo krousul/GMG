@@ -42,9 +42,6 @@
                         <li>
                           <a href="{{ route('contact') }}">{!! trans('content.menu7') !!}</a>
                         </li>
-                        <li>
-                          <a href="cpanel/index.php">{!! trans('content.menu8') !!}</a>
-                        </li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </nav> <!-- End .navbar -->
