@@ -8,10 +8,13 @@
 		public $messages = array();
 	
 		public function __construct(){
+
 			session_start();
 	
 			if (isset($_GET["logout"])) {
 				$this->doLogout();
+			} elseif (isset($_GET["expire"])) {
+				$this->doExpire();
 			} elseif (isset($_POST["login"])) {
 				$this->dologinWithPostData();
 			}
@@ -70,11 +73,32 @@
 		public function doLogout()
 		{
 			$_SESSION = array();
+			session_unset();
 			session_destroy();
-			$this->messages[] = "Has sido desconectado.";
-	
+			$this->messages[] = "Has sido desconectado.";	
 		}
 	
+		/**
+		 * perform the logout and return cpanel login 
+		 */
+		public function starCpanel()
+		{
+			$_SESSION = array();
+			session_unset();
+			session_destroy();
+		}
+		
+		/**
+		 * session expire
+		 */
+		public function doExpire()
+		{
+			$_SESSION = array();
+			session_unset();
+			session_destroy();
+			$this->messages[] = "Tu sesi&oacute;n a Expirado.";	
+		}
+
 		/**
 		 * simply return the current state of the user's login
 		 * @return boolean user's login status

@@ -85,7 +85,10 @@ function updateStatus($id_idioma,$statusValue){
 	$idioma->updateStatusIdiomConfiguration($id_idioma, $statusValue);
 	
  	$objResponse->script("xajax_cargarIdioma();");
-	
+
+	$objResponse->script("
+		swal('¡Bien!', 'Datos Actualizado con Exito!', 'success');		
+	");
 	return $objResponse;
 	
 }

@@ -2,12 +2,11 @@
 function getIdiomList($url) {
 	
 	$objResponse = new xajaxResponse();
-	
+
 	$idiomas = new Idiomas();
 	$arrayIdioma = $idiomas->getIdiomaActive();
 	
 	//Declarando eventos de los elementos
-	
 	
 	$idiomaHeader .= "<button type=\"button\" class=\"btn btn-success dropdown-toggle\" data-toggle=\"dropdown\" aria-expanded=\"false\">Idioma<span class=\"caret\"></span></button>";
 	$idiomaHeader .= "<ul class=\"dropdown-menu\" role=\"menu\">";
@@ -22,14 +21,14 @@ function getIdiomList($url) {
 	$idiomas = $idiomaHeader.$idiomaBody.$idiomaFooter;
 	
 	$objResponse->assign("idiom", "innerHTML", $idiomas);
-	
+
 	return $objResponse;
 }
 
 function selectLinkImage($image){
 	
 	$objResponse = new xajaxResponse();
-	
+
 	switch ($image){
 		case 'Banner2':
 			$objResponse->script("$('#linkbanner2').addClass('active');");
@@ -56,11 +55,8 @@ function selectLinkImage($image){
 			$objResponse->script("$('#tab1').removeClass('tab-pane');");
 			$objResponse->script("$('#tab1').addClass('tab-pane active');");
 		break;
-		
-	}
-	
-	return $objResponse;
-	
+	}	
+	return $objResponse;	
 }
 
 //FUNCIONES XAJAX A REGISTRAR

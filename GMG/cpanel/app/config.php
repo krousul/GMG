@@ -13,7 +13,8 @@ define('URL_MODAL', ROOT . 'views'. DS . 'administracion' . DS . 'modal' . DS);
 define('URL_AJAX', ROOT . 'views'. DS . 'administracion' . DS . 'ajax' . DS);
 
 
-define('BASE_URL', 'http://localhost:8080/GMG_SITIO/public_html/cpanel/');
+define('BASE_URL', 'http://localhost/gmg_sitio/public_html/cpanel/');
+define('BASE_URL_GMG', 'http://localhost/gmg_sitio/public_html/');
 define('URL_SECCIONES', BASE_URL . 'views/secciones/');
 define('URL_REDES', BASE_URL . 'views/redes_sociales/');
 define('URL_CONF_GEN', BASE_URL . 'views/conf_general/');

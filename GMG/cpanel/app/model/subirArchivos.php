@@ -17,16 +17,16 @@ class Documents extends Conexion{
 	
 	function __construct()
 	{
-		//obtengo un array con los parï¿½metros enviados a la funciï¿½n
+		//obtengo un array con los parámetros enviados a la función
 		$params = func_get_args();
-		//saco el nï¿½mero de parï¿½metros que estoy recibiendo
+		//saco el número de parámetros que estoy recibiendo
 		$num_params = func_num_args();
-		//cada constructor de un nï¿½mero dado de parï¿½mtros tendrï¿½ un nombre de funciï¿½n
+		//cada constructor de un número dado de parámtros tendrá un nombre de función
 		//atendiendo al siguiente modelo __construct1() __construct2()...
 		$funcion_constructor = '__construct'.$num_params;
-		//compruebo si hay un constructor con ese nï¿½mero de parï¿½metros
+		//compruebo si hay un constructor con ese número de parámetros
 		if (method_exists($this,$funcion_constructor)) {
-			//si existï¿½a esa funciï¿½n, la invoco, reenviando los parï¿½metros que recibï¿½ en el constructor original
+			//si existía esa función, la invoco, reenviando los parámetros que recibí en el constructor original
 			call_user_func_array(array($this,$funcion_constructor),$params);
 		}
 	}
@@ -46,7 +46,7 @@ class Documents extends Conexion{
 		$this->module=$module;
 		$this->seccion=$seccion;
 		$this->element=$element;
-		$this->descripcion=$descripcion;		
+		$this->descripcion=$descripcion;
 	}
 	
 	public function __construct6($module,$seccion,$name,$type,$size,$url){
@@ -91,7 +91,8 @@ class Documents extends Conexion{
 		
 		$PDO = new Conexion();
 		$PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		
+		$TEXT = true;
+
 		try {
 			//Guardando textos
 			
@@ -107,9 +108,10 @@ class Documents extends Conexion{
 							
 		}catch( PDOException $e ) {
 			echo "Error: ".$e->getMessage()."\n Linea : ".__LINE__;
+			$TEXT = false;
 			//echo "Error: ".$e->getMessage()."\n Linea : ".__LINE__."\nTrazado : ".$e->getTraceAsString()."\n";
 		}
-		
+		return $TEXT;
 	}
 	
 	public function getFile($type){
@@ -238,7 +240,7 @@ class Documents extends Conexion{
 		
 		$PDO = new Conexion();
 		$PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$TEXT = array();
+		$TEXT = true;
 		
 		try {
 			
@@ -253,6 +255,7 @@ class Documents extends Conexion{
 						
 		} catch (Exception $e) {
 			echo "Error: ".$e->getMessage()."\n Linea : ".__LINE__;
+			$TEXT = false;
 			//echo "Error: ".$e->getMessage()."\n Linea : ".__LINE__."\nTrazado : ".$e->getTraceAsString()."\n";
 		}
 		
@@ -267,7 +270,7 @@ class Documents extends Conexion{
 		$TEXT = array();
 		
 		try {
-			
+
 			$sentence = sprintf("UPDATE
 									files
 								SET 

@@ -15,7 +15,6 @@
 		
 		</div>
 	</div>
-   
   <script type="text/javascript" src="<?= JS?>vendor.js"></script>
   <script type="text/javascript" src="<?= JS?>app.js"></script>
 

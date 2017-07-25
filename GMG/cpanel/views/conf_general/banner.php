@@ -6,40 +6,20 @@
 <body>
   <div class="app app-default ">
 	<?php include URL_TEMPLATES . 'aside.php'; ?>
-	
-	<script type="text/ng-template" id="sidebar-dropdown.tpl.html">
-    	<div class="dropdown-background">
-         <div class="bg"></div>
-        </div>
-  		<div class="dropdown-container">
-    		{{list}}
-  		</div>
-	</script>
-	
 	<div class="app-container">
-	
-	
 		<div class="row">
 		    <div class="col-lg-12">
 		      <div class="card">
 		        <div class="card-body app-heading">
-		          <img class="profile-img" src="<?= IMAGES?>profile.png">
+		          <img class="profile-img" src="<?= IMAGES?>confi3.png">
 		          <div class="app-title">
 		            <div class="title"><span class="highlight">Banner</span></div>
-		            <div class="description">Frontend Developer</div>
+		            <div class="description">Editar las Im&aacute;genes del Banner Principal</div>
 		          </div>
 		        </div>
 		      </div>
 		    </div>
 		  </div>
-		<div class="row">
-		    <div class="col-lg-12">
-		      <div class="card">
-		        <?php if(!empty($showViews)) echo $showViews["MSJ"]; ?>
-		      </div>
-		    </div>
-		  </div>
-		  
 		<?php include URL_TEMPLATES."btn_floating.php";?>
 		
 		<div class="row">
@@ -179,7 +159,7 @@
 	</div>
 </div>
 
-!-- Modales -->
+<!-- Modales -->
 
     <div class="modal fade" id="<?= $IDFORMS[MODULE_BANNER][0]; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog">
@@ -396,29 +376,30 @@
         </div>
       </div>
     </div>
-    
-    
-<script type="text/javascript">
-xajax_getIdiomList('<?php echo URL_CONF_GEN.'banner.php?getContentsIdiom='; ?>');
-<?php if($_POST['Banner1']){?>
-xajax_selectLinkImage('<?php echo $_POST['Banner1']; ?>');
-<?php } ?>
-<?php if(!$_POST){?>
-xajax_selectLinkImage('');
-<?php } ?>
-<?php if($_POST['Banner2']){?>
-xajax_selectLinkImage('<?php echo $_POST['Banner2']; ?>');
-<?php } ?>
-<?php if($_POST['Banner3']){?>
-xajax_selectLinkImage('<?php echo $_POST['Banner3']; ?>');
-<?php } ?>
-<?php if($_POST['Banner4']){?>
-xajax_selectLinkImage('<?php echo $_POST['Banner4']; ?>');
-<?php } ?>
-<?php if($_POST['Banner5']){?>
-xajax_selectLinkImage('<?php echo $_POST['Banner5']; ?>');
-<?php } ?>
-</script>
+ 	<script type="text/javascript">
+		xajax_getIdiomList('<?php echo URL_CONF_GEN.'banner.php?getContentsIdiom='; ?>');
+		<?php if($_POST['Banner1']){?>
+			xajax_selectLinkImage('<?php echo $_POST['Banner1']; ?>');
+		<?php } ?>
+		<?php if(!$_POST){?>
+			xajax_selectLinkImage('');
+		<?php } ?>
+		<?php if($_POST['Banner2']){?>
+			xajax_selectLinkImage('<?php echo $_POST['Banner2']; ?>');
+		<?php } ?>
+		<?php if($_POST['Banner3']){?>
+			xajax_selectLinkImage('<?php echo $_POST['Banner3']; ?>');
+		<?php } ?>
+		<?php if($_POST['Banner4']){?>
+			xajax_selectLinkImage('<?php echo $_POST['Banner4']; ?>');
+		<?php } ?>
+		<?php if($_POST['Banner5']){?>
+			xajax_selectLinkImage('<?php echo $_POST['Banner5']; ?>');
+		<?php } ?>
+		<?php if(!empty($showViews['MSJ'])){ ?>
+			xajax_saveState("<?= $showViews['MSJ']?>");
+		<?php } ?>
+	</script>
 
 <!-- FOOTER -->
 <?php include URL_TEMPLATES.'footer.php';?> 

@@ -19,25 +19,16 @@
 	</script>
 	
 	<div class="app-container">
-	
-	
 		<div class="row">
 		    <div class="col-lg-12">
 		      <div class="card">
 		        <div class="card-body app-heading">
-		          <img class="profile-img" src="<?= IMAGES?>profile.png">
+		          <img class="profile-img" src="<?= IMAGES?>propiedades2.png">
 		          <div class="app-title">
 		            <div class="title"><span class="highlight">Inversiones</span></div>
 		            <div class="description">Frontend Developer</div>
 		          </div>
 		        </div>
-		      </div>
-		    </div>
-		  </div>
-		<div class="row">
-		    <div class="col-lg-12">
-		      <div class="card">
-		        <?php if(!empty($showViews)) echo $showViews["MSJ"];?>
 		      </div>
 		    </div>
 		  </div>
@@ -54,8 +45,7 @@
 		            </li>
 		          </ul>
 		          <div id="idiom" class="btn-group"></div>
-		        </div>
-		        
+		        </div>		        
 		        <div class="card-body no-padding tab-content">
 		          <div role="tabpanel" class="tab-pane active" id="tab1">
                   <div class="card-body">
@@ -270,16 +260,18 @@
 	          </div>
 	          <div class="modal-footer">
 	            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cerrar</button>
-	            <button type="submit" class="btn btn-sm btn-success"  name="<?= $IDFORMS[MODULE_INV][2]; ?>" value="<?= $IDFORMS[MODULE_INV][2]; ?>">Guardar Cambios</button>
+	            <button type="submit" class="btn btn-sm btn-success" name="<?= $IDFORMS[MODULE_INV][2]; ?>" value="<?= $IDFORMS[MODULE_INV][2]; ?>">Guardar Cambios</button>
 	          </div>
 		  </form>
         </div>
       </div>
     </div>
-
-<script type="text/javascript">
-xajax_getIdiomList('<?php echo URL_VIEWS_IDIOM.'inversiones.php?getContentsIdiom='; ?>');
-</script>
+	<script type="text/javascript">
+		xajax_getIdiomList('<?php echo URL_VIEWS_IDIOM.'inversiones.php?getContentsIdiom='; ?>');
+		<?php if(!empty($showViews['MSJ'])){ ?>
+			xajax_saveState("<?= $showViews['MSJ']?>");
+		<?php } ?>
+	</script>
 
 <!-- FOOTER -->
 <?php include URL_TEMPLATES.'footer.php';?> 

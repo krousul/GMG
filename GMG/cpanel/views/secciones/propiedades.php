@@ -21,10 +21,10 @@
 		    <div class="col-lg-12">
 		      <div class="card">
 		        <div class="card-body app-heading">
-		          <img class="profile-img" src="<?= IMAGES?>profile.png">
+		          <img class="profile-img" src="<?= IMAGES?>propiedades.png">
 		          <div class="app-title">
 		            <div class="title"><span class="highlight">Propiedades</span></div>
-		            <div class="description">Editar Propiedades del sistema</div>
+		            <div class="description">Editar la Secci&oacute;n de Propiedades</div>
 		          </div>
 		        </div>
 		      </div>
@@ -837,10 +837,12 @@
         </div>
       </div>
     </div>
- 
-<script type="text/javascript">
-xajax_getIdiomList('<?php echo URL_VIEWS_IDIOM.'propiedades.php?getContentsIdiom='; ?>');
-</script>
+ 	<script type="text/javascript">
+		xajax_getIdiomList('<?php echo URL_VIEWS_IDIOM.'propiedades.php?getContentsIdiom='; ?>');
+		<?php if(!empty($showViews['MSJ'])){ ?>
+			xajax_saveState("<?= $showViews['MSJ']?>");
+		<?php } ?>
+	</script>
 <!-- FOOTER -->
 <?php include URL_TEMPLATES.'footer.php';?> 
 <script type="text/javascript" src="<?= JS?>previewImagePropiedades.js"></script>

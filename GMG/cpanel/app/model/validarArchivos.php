@@ -44,7 +44,7 @@ function verifyFiles($FILES,$cabeceras,$modulo,$PARAMETERSVALIDATION){
   	$allText = '';
     $idioma = '';
 	//Detecta
-	
+
 	$seccion = $cabeceras[0][1];
 	
 	$text = $cabeceras[0][0][0]; //Accediendo a todos los textos
@@ -61,11 +61,19 @@ function verifyFiles($FILES,$cabeceras,$modulo,$PARAMETERSVALIDATION){
 			$datosTexto = $Text->getText();
 			if(!is_array($datosTexto)){
 				if($datosTexto == null){
-					$Text->setText();
-					$allText[] = $Text->getText();
+					if($Text->setText()){
+						$allText[] = $Text->getText();
+						$modoMsj = 'success';
+					} else{
+						$modoMsj = 'error';
+					}
 				}else{
-					$Text->updateText($datosTexto);
-					$allText[] = $Text->getText();
+					if($Text->updateText($datosTexto)){
+						$allText[] = $Text->getText();
+						$modoMsj = 'success';
+					} else{
+						$modoMsj = 'error';
+					}
 				}
 			}else{
 				$allText[] = $datosTexto;
@@ -121,7 +129,7 @@ function verifyFiles($FILES,$cabeceras,$modulo,$PARAMETERSVALIDATION){
 									$modoMsj = "success";
 								} else {
 									$MSJ = $MSJ_ERRONEO.'No se pudo guardar el archivo';
-									$modoMsj = "danger";
+									$modoMsj = "error";
 								}
 							}else{
 								/*Eliminando imagen asociada*/
@@ -149,13 +157,11 @@ function verifyFiles($FILES,$cabeceras,$modulo,$PARAMETERSVALIDATION){
 							unlink("../..$arrayUrl");
 							$File->updateFile();
 							$allFiles[] = $File->getFile();
-							$MSJ = $MSJ_ATENCION.'El archivo ya existe';
-							$modoMsj = "warning";
 						}
 							
 					} else {
-						$MSJ = $MSJ_ERRONEO.'Archivo no permitido o excede el tamaï¿½o';
-						$modoMsj = "warning";
+						$MSJ = $MSJ_ERRONEO.'Archivo no permitido o excede el tamaño';
+						$modoMsj = "warning_no_permitido";
 					}
 				
 				}
@@ -163,43 +169,14 @@ function verifyFiles($FILES,$cabeceras,$modulo,$PARAMETERSVALIDATION){
 		
 		}	
 	}
-	
-	if(!empty($modoMsj)){
-		switch ($modoMsj){
-			case "success" :
-				$htmlMSJ = "<div class=\"col-md-6 col-sm-12 close-messages\">
-								<div class=\"alert alert-success\" role=\"alert\">
-									<strong>$MSJ_EXITOSO</strong>
-						            <button type=\"button\" class=\"close\" ><span aria-hidden=\"true\">&times;</span></button>
-								</div>
-							</div>";
-			break;
-			case "danger":
-				$htmlMSJ = "<div class=\"col-md-6 col-sm-12 close-messages\">
-								<div class=\"alert alert-danger  alert-dismissible\" role=\"alert\">
-									<strong>$MSJ</strong>
-						            <button type=\"button\" class=\"close\" ><span aria-hidden=\"true\">&times;</span></button>
-								</div>
-							</div>";
-			break;
-			case "warning":
-				$htmlMSJ = "<div class=\"col-md-6 col-sm-12 close-messages\">
-								<div class=\"alert alert-warning alert-dismissible\" role=\"alert\">
-									<strong>$MSJ</strong>
-						            <button type=\"button\" class=\"close\" ><span aria-hidden=\"true\">&times;</span></button>
-								</div>
-							</div>";
-			break;
-		}
-	}
+
 	//Armando Array de resultados
 	
-	$RESULT = array("MSJ" => $htmlMSJ,
+	$RESULT = array("MSJ" => $modoMsj,
 					"ALL_FILE" => $allFiles,
 					"ALL_TEXT" => $allText,
 					"IDIOM" => $idioma,
 	);
-	
 	return $RESULT;
 }
 
@@ -222,8 +199,7 @@ function identitySeccion($REQUEST,$moduloSeccion){
 			}
 		}
 	}
-	
-return array("module" => $getValueModule,"request" => $REQUEST);
+	return array("module" => $getValueModule,"request" => $REQUEST);
 }
 
 function compareForIdiom($idiom,$text){
@@ -237,7 +213,6 @@ function compareForIdiom($idiom,$text){
 			}
 		}
 	}
-	
 	return array("idioma" => $getValueIdiom,"text" => $text,"description" => $descIdiom);
 }
 
@@ -295,12 +270,6 @@ function getComponents($module,$idiom,$GLOBALFORM){
 			}
 		}
 	}
-	
-	
 	return $SHOW;
-	
 }
-
-
-
 ?>

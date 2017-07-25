@@ -20,7 +20,7 @@
 		
 	
 		public function updateStatusIdiomConfiguration($id_diom,$statusValue){
-			
+
 			$sQuery = "UPDATE idiom SET ";
 				$sQuery.= "status = $statusValue ";
 				$sQuery.= "WHERE id_idiom = $id_diom ";

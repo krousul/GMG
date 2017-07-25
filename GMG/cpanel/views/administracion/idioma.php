@@ -12,7 +12,7 @@
 		    <div class="col-lg-12">
 		      <div class="card">
 		        <div class="card-body app-heading">
-		          <img class="profile-img" src="<?= IMAGES?>profile.png">
+		          <img class="profile-img" src="<?= IMAGES?>idioma3.png">
 		          <div class="app-title">
 		            <div class="title"><span class="highlight">Idioma</span></div>
 		            <div class="description">Elija los idiomas posibles para mostrar el contenido del sitio web. </div>
@@ -48,7 +48,7 @@
 </div>
 
 <script type="text/javascript">
-xajax_cargarIdioma();
+	xajax_cargarIdioma();
 </script>	  
 
 <!-- Aqui va el footer de scripts y el pie de pagina -->

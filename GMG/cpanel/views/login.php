@@ -1,9 +1,10 @@
 <?php 
 	include '..//app/config.php';
+	require_once(URL_CONTROLLER . "con_vlogin.php");
 	require_once(URL_CONTROLLER . "con_login.php");
 	
 	$login = new Login();
-	
+
 	if ($login->isUserLoggedIn() == true) {
 	   header("location: principal.php");
 	} else {
@@ -11,6 +12,7 @@
 	<!DOCTYPE html>
 		<html lang="es">
 		<head>
+		<?php $xajax->printJavascript('../controller/xajax/');?>
 		  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
 		  <title>GMG | Login</title>
@@ -57,7 +59,8 @@
 		                <span id="reauth-email" class="reauth-email"></span>
 		                <input class="form-control" placeholder="Usuario" name="user_name" type="text" value="" autofocus="" required>
 		                <input class="form-control" placeholder="Contraseña" name="user_password" type="password" value="" autocomplete="off" required>
-		                <button type="submit" class="btn btn-lg btn-success btn-block btn-signin" name="login" id="submit">Iniciar Sesión</button>
+		                <button type="submit" class="btn btn-lg btn-success btn-block btn-signin" name="login" id="submit">Iniciar Sesi&oacute;n</button>
+		                <button type="button" class="btn btn-lg btn-success btn-block btn-signin" onClick="xajax_redirectGMG();" name="regresar" id="regresar">Ir a Glabal Money Group</button>
 		            </form><!-- /form -->
 		        </div><!-- /card-container -->
 		    </div><!-- /container -->

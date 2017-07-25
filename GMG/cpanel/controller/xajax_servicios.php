@@ -26,6 +26,7 @@
 		
 		return $objResponse;
 	}
+
 	//REGISTRO DE FUNCIONES XAJAX
 	$xajax->register(XAJAX_FUNCTION, "getIdiomList");
 ?>

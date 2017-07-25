@@ -1762,7 +1762,7 @@ html, body {
 
 body {
   min-height: 100vh;
-  background-color: #e7edee;
+  background-color: #c8c8c8;
   overflow-x: hidden; }
   body .app {
     min-height: 100vh; }
@@ -1778,7 +1778,7 @@ body {
         font-size: 1.75em;
         font-weight: 200; }
     body .app-container > div:first-child, body .app-container > ui-view > div:first-child, body .app-container > ui-view > ui-view > div:first-child, body .app-container > ui-view > ui-view > ui-view > div:first-child {
-      margin-top: 30px; }
+      margin-top: 20px; }
     body .app-container > div.row, body .app-container > ui-view > div.row, body .app-container > ui-view > ui-view > div.row, body .app-container > ui-view > ui-view > ui-view > div.row {
       padding-left: 30px;
       padding-right: 30px; }
@@ -5819,7 +5819,7 @@ footer.app-footerin {
 	.tittle_principal {
 		position: absolute; /* POSICION DEL TITULO*/
 		top:4%;
-		left:56%;
+		left:54%;
 		width:600px;
 		height:300px;
 		padding:20px;

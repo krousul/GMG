@@ -8,15 +8,15 @@
 		
 		public function getpropiedades($id = 0){
 
-				$sQuery = "SELECT * FROM propiedades";
-					if($id > 0)
-						$sQuery .= " WHERE id_propiedades = {$id}";
-				$sResult = self::$db->query($sQuery);
-			
-				if($sResult->rowCount() > 0) 
-					return $sResult->fetchAll(PDO::FETCH_ASSOC);
-				else 
-					return false;
+			$sQuery = "SELECT * FROM propiedades";
+				if($id > 0)
+					$sQuery .= " WHERE id_propiedades = {$id}";
+			$sResult = self::$db->query($sQuery);
+		
+			if($sResult->rowCount() > 0) 
+				return $sResult->fetchAll(PDO::FETCH_ASSOC);
+			else 
+				return false;
 		}
 		
 		public function savepropiedades($nom_propiedades){

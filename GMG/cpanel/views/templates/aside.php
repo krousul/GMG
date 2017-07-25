@@ -18,10 +18,10 @@
         <div class="dropdown-menu">
           <ul>
             <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Secci&oacute;nes</li>
-            <li><a href="<?= URL_SECCIONES?>servicios.php">Servicios</a></li>
-            <li><a href="<?= URL_SECCIONES?>equipo.php">Equipo</a></li>
-            <li><a href="<?= URL_SECCIONES?>propiedades.php">Propiedades</a></li>
-            <li><a href="<?= URL_SECCIONES?>inversiones.php">Inversiones</a></li>
+            <li><a href="#" onclick="xajax_redirect('servicios');">Servicios</a></li>
+            <li><a href="#" onclick="xajax_redirect('equipo');">Equipo</a></li>
+            <li><a href="#" onclick="xajax_redirect('propiedades');">Propiedades</a></li>
+            <li><a href="#" onclick="xajax_redirect('inversiones');">Inversiones</a></li>
             <li class="line"></li>
           </ul>
         </div>
@@ -37,7 +37,7 @@
         <div class="dropdown-menu">
           <ul>
             <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Configuraci&oacute;n Generales</li>
-            <li><a href="<?= URL_CONF_GEN?>banner.php"> Banner Principal</a></li>
+            <li><a href="#" onclick="xajax_redirect('banner');"> Banner Principal</a></li>
             <li class="line"></li>
           </ul>
         </div>
@@ -53,8 +53,8 @@
         <div class="dropdown-menu">
           <ul>
             <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Administraci&oacute;n</li>
-            <li><a href="<?= URL_ADMIN?>idioma.php"> Idioma</a></li>
-            <li><a href="<?= URL_ADMIN?>sistema.php"> Usuarios</a></li>
+            <li><a href="#" onclick="xajax_redirect('idioma');"> Idioma</a></li>
+            <li><a href="#" onclick="xajax_redirect('usuario');"> Usuarios</a></li>
             <li class="line"></li>
           </ul>
         </div>
