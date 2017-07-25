@@ -30,10 +30,10 @@ class DataES extends PDO {
 		try {
 			
 			$sentence = "SELECT
-								description
-							FROM text fl
-						WHERE id_module = 'Propiedades'
-						AND id_idiom = '$idiom';";
+			description
+			FROM text fl
+			WHERE id_module = 'Propiedades'
+			AND id_idiom = '$idiom';";
 			
 			$Result = $PDO->prepare($sentence);
 			$Result->setFetchMode(PDO::FETCH_ASSOC);
@@ -42,7 +42,7 @@ class DataES extends PDO {
 			
 			while($row = $Result->fetch()){
 				$variable = $row['description'];
-				$string.= "<li><a href=\"#propi\">".$variable."</a></li>";
+				$string.= "<li><a href=\"#propi\">".utf8_encode($variable)."</a></li>";
 			}
 			
 			
@@ -65,13 +65,14 @@ class DataES extends PDO {
 		try {
 			
 			$sentence = "SELECT
-							txt.description,
-							fl.url
-						FROM text txt
-						LEFT JOIN files fl ON fl.id_module = txt.id_module
-										   AND fl.id_seccion = txt.id_seccion
-						WHERE txt.id_module = 'Propiedades'
-						AND txt.id_idiom = '$idiom';";
+			txt.description,
+			fl.url
+			FROM text txt
+			LEFT JOIN files fl ON fl.id_module = txt.id_module
+			AND fl.id_seccion = txt.id_seccion
+    		AND fl.id_idiom = txt.id_idiom
+			WHERE txt.id_module = 'Propiedades'
+			AND txt.id_idiom = '$idiom';";
 			
 			$Result = $PDO->prepare($sentence);
 			$Result->setFetchMode(PDO::FETCH_ASSOC);
@@ -79,8 +80,9 @@ class DataES extends PDO {
 			
 			
 			while($row = $Result->fetch()){
-				$descripcion = $row['description'];
-				$url = $row['url'];
+				$value[]=$row;
+				$descripcion = utf8_encode($row['description']);
+				$url = utf8_encode($row['url']);
 				$html .= "<div class=\"col-lg-3 col-md-3 col-sm-12\">
 							<article class=\"blog-wrap boxes portfolio-wrap inversiones\">
 								<div class=\"singleTeam\">".
@@ -153,7 +155,7 @@ class DataES extends PDO {
 			
 			while($row = $Result->fetch()){
 				$seccion = $row['id_seccion'];
-				$url = $row['url'];
+				$url = utf8_encode($row['url']);
 				$oldUrl = explode("/", $url);
 				for ($i = count($oldUrl)-7; $i < count($oldUrl); $i++) {
 					if($i == count($oldUrl)-7)
@@ -276,10 +278,10 @@ class DataES extends PDO {
 					for ($j = 1; $j <= 2; $j++){
 						if($arrayServ[$cont]['id_element'] == 1){
 							$servicio.=" <div class=\"servicetitle\">
-											<h3>".$arrayServ[$cont]['description']."</h3>
+											<h3>".utf8_encode($arrayServ[$cont]['description'])."</h3>
 										 </div>";
 						}else{
-							$servicio.="<p>".$arrayServ[$cont]['description']."</p>";
+							$servicio.="<p>".utf8_encode($arrayServ[$cont]['description'])."</p>";
 						}
 						$cont++;
 					}
@@ -364,11 +366,11 @@ class DataES extends PDO {
 						$team.= "<div class=\"text-center clearfix\">
 									<h3 class=\"big_title\">";
 							if($arrayTeam[$cont]['id_element'] == "1"){
-								$team.= $arrayTeam[$cont]['description'];
+								$team.= utf8_encode($arrayTeam[$cont]['description']);
 								$cont++;
 							}
 							if($arrayTeam[$cont]['id_element'] == "2"){
-								$team.= "<small>".$arrayTeam[$cont]['description']."</small>";
+								$team.= "<small>".utf8_encode($arrayTeam[$cont]['description'])."</small>";
 								$cont++;
 							}
 						
@@ -386,7 +388,7 @@ class DataES extends PDO {
 												$oldUrl = explode("/", $arrayFile[$img]['url']);
 												for ($i = count($oldUrl)-7; $i < count($oldUrl); $i++) {
 													if($i == count($oldUrl)-7)
-														$arrayUrl.= $oldUrl[$i];
+														$arrayUrl.= utf8_encode($oldUrl[$i]);
 														else
 															$arrayUrl.= "/".$oldUrl[$i];
 												}
@@ -405,23 +407,23 @@ class DataES extends PDO {
 										($arrayTeam[$cont]['id_element'] == "3") ? $texto3 = $arrayTeam[$cont]['description']: $texto3="";
 										$cont++;
 										
+										$texto1 = utf8_encode($texto1);
+										$texto2 = utf8_encode($texto2);
+										$texto3 = utf8_encode($texto3);
+
 										$team.="<div class=\"teamDet\">
 												<h3> $texto1 </h3>
 												<p> $texto2</p>
 											  </div>";
 										
 										$team.="<div class=\"team_hover\">
-													<h3>$texto2</h3>
+													<h3>$texto1</h3>
 													<p>$texto3</p>
 												</br>
 													<a href=\"#contact\" style=\"color: #FFF; font-size: 20px !important; \">
 														Ver Más
 													</a>
 												</div>";
-										
-										
-						
-						
 								$team.= "</div>";
 							$team.= "</div>";
 							if($j == count($cantTeam)){
@@ -461,6 +463,7 @@ class DataES extends PDO {
 			FROM text txt
 			LEFT JOIN files fl ON fl.id_module = txt.id_module
 			AND fl.id_seccion = txt.id_seccion
+     		AND fl.id_idiom = txt.id_idiom
 			WHERE txt.id_module = 'Inversiones'
 			AND txt.id_idiom = '$idiom';";
 			
@@ -470,8 +473,8 @@ class DataES extends PDO {
 			
 			
 			while($row = $Result->fetch()){
-				$descripcion = $row['description'];
-				$url = $row['url'];
+				$descripcion = utf8_encode($row['description']);
+				$url = utf8_encode($row['url']);
 				$oldUrl = explode("/", $url);
 				for ($i = count($oldUrl)-7; $i < count($oldUrl); $i++) {
 					if($i == count($oldUrl)-7)
@@ -970,8 +973,9 @@ return [
 		
 		'divProyecto' => $data->getAllPropiedades("divProyecto",1),
     
-		'sliders' => $data->getSliders("sliders",1)
+		'sliders' => $data->getSliders("sliders",1),
 
+		'verMas' => 'Ver Más'
 
 ];
 

@@ -70,6 +70,7 @@ class Data extends PDO {
 			FROM text txt
 			LEFT JOIN files fl ON fl.id_module = txt.id_module
 			AND fl.id_seccion = txt.id_seccion
+    		AND fl.id_idiom = txt.id_idiom
 			WHERE txt.id_module = 'Propiedades'
 			AND txt.id_idiom = '$idiom';";
 			
@@ -80,7 +81,7 @@ class Data extends PDO {
 			
 			while($row = $Result->fetch()){
 				$descripcion = $row['description'];
-				$url = $row['url'];
+				$url = utf8_encode($row['url']);
 				$html .= "<div class=\"col-lg-3 col-md-3 col-sm-12\">
 							<article class=\"blog-wrap boxes portfolio-wrap inversiones\">
 								<div class=\"singleTeam\">".
@@ -108,7 +109,7 @@ class Data extends PDO {
 				<div class=\"team_hover\" style=\"height: 70px !important;\">
 				<p style=\"text-align: center; margin-top: -10px !important\">
 				<a href=\"#contact\" style=\"color: #FFF; font-size: 20px !important; \">
-				Ver Más
+				Show More
 				</a>
 				</p>
 				</div>
@@ -412,11 +413,11 @@ class Data extends PDO {
 						</div>";
 						
 						$team.="<div class=\"team_hover\">
-						<h3>$texto2</h3>
+						<h3>$texto1</h3>
 						<p>$texto3</p>
 						</br>
 						<a href=\"#contact\" style=\"color: #FFF; font-size: 20px !important; \">
-						Ver Más
+						Show More
 						</a>
 						</div>";
 						
@@ -462,6 +463,7 @@ class Data extends PDO {
 			FROM text txt
 			LEFT JOIN files fl ON fl.id_module = txt.id_module
 			AND fl.id_seccion = txt.id_seccion
+     		AND fl.id_idiom = txt.id_idiom
 			WHERE txt.id_module = 'Inversiones'
 			AND txt.id_idiom = '$idiom';";
 			
@@ -1035,7 +1037,9 @@ transforming this activity into a business with excellent margins Of profitabili
 		
 		'divProyecto' => $data->getAllPropiedades("divProyecto",2),
 		
-		'sliders' => $data->getSliders("sliders",2)
+		'sliders' => $data->getSliders("sliders",2),
+		
+		'verMas' => 'Show More'
 
 
 ];

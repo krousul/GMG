@@ -71,6 +71,7 @@ class DataPT extends PDO {
 			FROM text txt
 			LEFT JOIN files fl ON fl.id_module = txt.id_module
 			AND fl.id_seccion = txt.id_seccion
+     		AND fl.id_idiom = txt.id_idiom
 			WHERE txt.id_module = 'Propiedades'
 			AND txt.id_idiom = '$idiom';";
 			
@@ -109,7 +110,7 @@ class DataPT extends PDO {
 				<div class=\"team_hover\" style=\"height: 70px !important;\">
 				<p style=\"text-align: center; margin-top: -10px !important\">
 				<a href=\"#contact\" style=\"color: #FFF; font-size: 20px !important; \">
-				Ver Más
+				Ver mais
 				</a>
 				</p>
 				</div>
@@ -411,11 +412,11 @@ class DataPT extends PDO {
 						</div>";
 						
 						$team.="<div class=\"team_hover\">
-						<h3>$texto2</h3>
+						<h3>$texto1</h3>
 						<p>$texto3</p>
 						</br>
 						<a href=\"#contact\" style=\"color: #FFF; font-size: 20px !important; \">
-						Ver Más
+						Ver mais
 						</a>
 						</div>";
 						
@@ -461,6 +462,7 @@ class DataPT extends PDO {
 			FROM text txt
 			LEFT JOIN files fl ON fl.id_module = txt.id_module
 			AND fl.id_seccion = txt.id_seccion
+     		AND fl.id_idiom = txt.id_idiom
 			WHERE txt.id_module = 'Inversiones'
 			AND txt.id_idiom = '$idiom';";
 			
@@ -1013,8 +1015,8 @@ fluido de freio avaliação, graxa 5a roda)
 		
 		'divProyecto' => $data->getAllPropiedades("divProyecto",3),
 		
-		'sliders' => $data->getSliders("sliders",3)
+		'sliders' => $data->getSliders("sliders",3),
 		
-
+		'verMas' => 'Ver mais'
 
 ];
