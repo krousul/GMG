@@ -24,7 +24,7 @@ include URL_TEMPLATES . 'head.php';
 		          <img class="profile-img" src="<?= IMAGES?>servicios2.png">
 		          <div class="app-title">
 		            <div class="title"><span class="highlight">Equipo</span></div>
-		            <div class="description">Frontend Developer</div>
+		            <div class="description">Editar el Contenido de la Secci&oacute;n Equipo</div>
 		          </div>
 		        </div>
 		      </div>
@@ -46,15 +46,10 @@ include URL_TEMPLATES . 'head.php';
 		          <div role="tabpanel" class="tab-pane active" id="tab1">
                   <div class="card-body">
                   	<div class="row">
-                  	
-                  	<div class="caption">
-								<h3 align="center" class="title">Secci&oacute;n Nuestro Equipo</h3>
-					
-					
-								<h4 align="center" class="title">T&iacute;tulo de la Secci&oacute;n</h4>
-					</div>
-					
-                  		<div class="col-lg-12" align="center">
+                  	<div class="col-lg-12" align="center">
+                  		<div class="section">
+		                <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i>T&iacute;tulo de la Secci&oacute;n</div>
+		                  <div class="section-body">
 						    <div align="center">
 						      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#<?= $IDFORMS[MODULE_TEAM][0]; ?>">
 				                  <div><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;EDITAR</div>
@@ -76,10 +71,11 @@ include URL_TEMPLATES . 'head.php';
 		            <div class="row">
 		              <div class="col-md-4 col-sm-4">
 		                <div class="section">
+		                <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i>Miembro del equipo</div>
 		                  <div class="section-body">
 			                 <div class="thumbnail">
-			                 <h4 align="center" class="title">Miembro del equipo</h4>
 								<img src="<?php if(!empty($SHOWFORMS)) echo  $SHOWFORMS[$IDFORMS[MODULE_TEAM][1]]['urlImage'][0]; ?>" class="img-responsive"  height="300px" width="300px">
+								<h3 align="center" class="title">Nombre y Cargo</h3>
 								<div class="caption">
 									<h3 class="title"><?php if(!empty($SHOWFORMS)) echo $SHOWFORMS[$IDFORMS[MODULE_TEAM][1]]['descriptionText'][0]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
 								</div>
@@ -97,10 +93,11 @@ include URL_TEMPLATES . 'head.php';
 		              </div>
               		  <div class="col-md-4 col-sm-4">
 		                <div class="section">
+		                <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i>Miembro del equipo</div>
 		                  <div class="section-body">
 			                 <div class="thumbnail">
-			                 <h4 align="center" class="title">Miembro del equipo</h4>
 								<img src="<?php if(!empty($SHOWFORMS)) echo $SHOWFORMS[$IDFORMS[MODULE_TEAM][2]]['urlImage'][0]; ?>" class="img-responsive" height="300px" width="300px">
+								<h3 align="center" class="title">Nombre y Cargo</h3>
 								<div class="caption">
 									<h3 class="title"><?php if(!empty($SHOWFORMS)) echo $SHOWFORMS[$IDFORMS[MODULE_TEAM][2]]['descriptionText'][0]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
 								</div>
@@ -118,10 +115,11 @@ include URL_TEMPLATES . 'head.php';
 		              </div>
               		  <div class="col-md-4 col-sm-4">
 		                <div class="section">
+		                <div class="section-title"><i class="icon fa fa-book" aria-hidden="true"></i>Miembro del equipo</div>
 		                  <div class="section-body">
 			                 <div class="thumbnail">
-			                 <h4 align="center" class="title">Miembro del equipo</h4>
 								<img src="<?php if(!empty($SHOWFORMS)) echo $SHOWFORMS[$IDFORMS[MODULE_TEAM][3]]['urlImage'][0]; ?>" class="img-responsive" height="300px" width="300px">
+								<h3 align="center" class="title">Nombre y Cargo</h3><br>
 								<div class="caption">
 									<h3 class="title"><?php if(!empty($SHOWFORMS)) echo $SHOWFORMS[$IDFORMS[MODULE_TEAM][3]]['descriptionText'][0]; ?><a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
 								</div>

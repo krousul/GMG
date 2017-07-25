@@ -107,7 +107,7 @@ function verifyFiles($FILES,$cabeceras,$modulo,$PARAMETERSVALIDATION){
 						}
 						$RUTA_DIR.=$folderIdiom.'\\';
 						$RUTA_DIR = str_replace("\\","/", $RUTA_DIR);//Solo para el servidor
-						$archivo = $RUTA_DIR.$FILES[$nameFile]["name"];
+						$archivo = utf8_decode($RUTA_DIR.$FILES[$nameFile]["name"]);
 						chmod($archivo, 0777);
 						
 						$File = new Documents($modulo, $seccion, $archivos[$i][0], $archivos[$i][1], $archivos[$i][2], $archivos[$i][3]);
@@ -148,15 +148,6 @@ function verifyFiles($FILES,$cabeceras,$modulo,$PARAMETERSVALIDATION){
 						} else {
 							/*Eliminando imagen asociada*/
 							$modoMsj = "success";
-							$valor = new Documents($modulo,$seccion,$idioma);
-							$delete[] = $valor->getFile('deleted');
-							$oldUrl = explode("/", $delete[0]['url']);
-							for ($i = count($oldUrl)-6; $i < count($oldUrl); $i++) {
-								$arrayUrl.= "/".$oldUrl[$i];
-							}
-							unlink("../..$arrayUrl");
-							$File->updateFile();
-							$allFiles[] = $File->getFile();
 						}
 							
 					} else {

@@ -47,6 +47,7 @@
                   <div class="card-body">
 		            <div class="row">
 		              <div class="col-md-4 col-sm-4">
+		              <h3 align="center" class="title">T&iacute;tulo 1</h3>
 		                <div class="section">
 		                  <div class="section-body">
 			                 <div class="thumbnail">
@@ -63,6 +64,7 @@
 		                </div>
 		              </div>
               		  <div class="col-md-4 col-sm-4">
+              		  <h3 align="center" class="title">T&iacute;tulo 2</h3>
 		                <div class="section">
 		                  <div class="section-body">
 			                 <div class="thumbnail">
@@ -79,6 +81,7 @@
 		                </div>
 		              </div>
               		  <div class="col-md-4 col-sm-4">
+              		  <h3 align="center" class="title">T&iacute;tulo 3</h3>
 		                <div class="section">
 		                  <div class="section-body">
 			                 <div class="thumbnail">
@@ -97,6 +100,7 @@
 		            </div>
 		            <div class="row">
 		              <div class="col-md-4 col-sm-4">
+		              <h3 align="center" class="title">T&iacute;tulo 4</h3>
 		                <div class="section">
 		                  <div class="section-body">
 			                 <div class="thumbnail">
@@ -113,6 +117,7 @@
 		                </div>
 		              </div>
               		  <div class="col-md-4 col-sm-4">
+              		  <h3 align="center" class="title">T&iacute;tulo 5</h3>
 		                <div class="section">
 		                  <div class="section-body">
 			                 <div class="thumbnail">
@@ -129,6 +134,7 @@
 		                </div>
 		              </div>
               		  <div class="col-md-4 col-sm-4">
+              		  <h3 align="center" class="title">T&iacute;tulo 6</h3>
 		                <div class="section">
 		                  <div class="section-body">
 			                 <div class="thumbnail">
@@ -188,6 +194,7 @@
 		         	<div class="row">
 						<div class="form-group">
 							<div class="col-sm-5">
+							Contenido:
 								<textarea  id="<?= $IDFORMS[MODULE_SERV][0]; ?>text2" name="<?= $IDFORMS[MODULE_SERV][0]; ?>text2" class="form-control" placeholder="Ingrese Contenido"><?= $SHOWFORMS[$IDFORMS[MODULE_SERV][0]]['descriptionText'][1] ?></textarea>
 							</div>
 						</div>
@@ -234,6 +241,9 @@
 		         	<div class="row">
 						<div class="form-group">
 							<div class="col-sm-5">
+
+							Contenido:
+
 								<textarea  id="<?= $IDFORMS[MODULE_SERV][0]; ?>text2" name="<?= $IDFORMS[MODULE_SERV][1]; ?>text2" class="form-control" placeholder="Ingrese Contenido"><?= $SHOWFORMS[$IDFORMS[MODULE_SERV][1]]['descriptionText'][1] ?></textarea>
 							</div>
 						</div>
@@ -280,6 +290,7 @@
 		         	<div class="row">
 						<div class="form-group">
 							<div class="col-sm-5">
+							Contenido:
 								<textarea  id="<?= $IDFORMS[MODULE_SERV][2]; ?>text2" name="<?= $IDFORMS[MODULE_SERV][2]; ?>text2" class="form-control" placeholder="Ingrese Contenido"><?= $SHOWFORMS[$IDFORMS[MODULE_SERV][2]]['descriptionText'][1] ?></textarea>
 							</div>
 						</div>
@@ -326,6 +337,7 @@
 		         	<div class="row">
 						<div class="form-group">
 							<div class="col-sm-5">
+							Contenido:
 								<textarea  id="<?= $IDFORMS[MODULE_SERV][3]; ?>text2" name="<?= $IDFORMS[MODULE_SERV][3]; ?>text2" class="form-control" placeholder="Ingrese Contenido"><?= $SHOWFORMS[$IDFORMS[MODULE_SERV][3]]['descriptionText'][1] ?></textarea>
 							</div>
 						</div>
@@ -372,6 +384,7 @@
 		         	<div class="row">
 						<div class="form-group">
 							<div class="col-sm-5">
+							Contenido:
 								<textarea  id="<?= $IDFORMS[MODULE_SERV][4]; ?>text2" name="<?= $IDFORMS[MODULE_SERV][4]; ?>text2" class="form-control" placeholder="Ingrese Contenido"><?= $SHOWFORMS[$IDFORMS[MODULE_SERV][4]]['descriptionText'][1] ?></textarea>
 							</div>
 						</div>
@@ -418,6 +431,7 @@
 		         	<div class="row">
 						<div class="form-group">
 							<div class="col-sm-5">
+							Contenido:
 								<textarea  id="<?= $IDFORMS[MODULE_SERV][5]; ?>text2" name="<?= $IDFORMS[MODULE_SERV][5]; ?>text2" class="form-control" placeholder="Ingrese Contenido"><?= $SHOWFORMS[$IDFORMS[MODULE_SERV][5]]['descriptionText'][1] ?></textarea>
 							</div>
 						</div>

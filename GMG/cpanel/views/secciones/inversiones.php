@@ -6,6 +6,12 @@
 		
 ?>
 <body>
+	<script type="text/javascript">
+		xajax_getIdiomList('<?php echo URL_VIEWS_IDIOM.'inversiones.php?getContentsIdiom='; ?>');
+		<?php if(!empty($showViews['MSJ'])){ ?>
+			xajax_saveState("<?= $showViews['MSJ']?>");
+		<?php } ?>
+	</script>
   <div class="app app-default ">
 	<?php include URL_TEMPLATES . 'aside.php'; ?>
 	
@@ -26,7 +32,7 @@
 		          <img class="profile-img" src="<?= IMAGES?>propiedades2.png">
 		          <div class="app-title">
 		            <div class="title"><span class="highlight">Inversiones</span></div>
-		            <div class="description">Frontend Developer</div>
+		            <div class="description">Editar el Contenido de Inversiones</div>
 		          </div>
 		        </div>
 		      </div>
@@ -266,12 +272,6 @@
         </div>
       </div>
     </div>
-	<script type="text/javascript">
-		xajax_getIdiomList('<?php echo URL_VIEWS_IDIOM.'inversiones.php?getContentsIdiom='; ?>');
-		<?php if(!empty($showViews['MSJ'])){ ?>
-			xajax_saveState("<?= $showViews['MSJ']?>");
-		<?php } ?>
-	</script>
 
 <!-- FOOTER -->
 <?php include URL_TEMPLATES.'footer.php';?> 
